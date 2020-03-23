@@ -11,6 +11,10 @@ import { FooterComponent } from './component/navigation/footer/footer.component'
 import { BestComponent } from './component/menu/best/best.component';
 import { ActualComponent } from './component/menu/actual/actual.component';
 import { PopularComponent } from './component/menu/popular/popular.component';
+import { HomeComponent } from './component/menu/home/home.component';
+import { FavoriteInputComponent } from './component/menu/favorite/favorite-input/favorite-input.component';
+import { FavoriteListComponent } from './component/menu/favorite/favorite-list/favorite-list.component';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +26,9 @@ import { PopularComponent } from './component/menu/popular/popular.component';
     BestComponent,
     ActualComponent,
     PopularComponent,
+    HomeComponent,
+    FavoriteInputComponent,
+    FavoriteListComponent,
   ],
   imports: [
     BrowserModule,
