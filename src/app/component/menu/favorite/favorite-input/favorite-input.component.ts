@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ITodo} from "../../../model/ITodo";
+import {IFavorite} from "../../../model/IFavorite";
 
 @Component({
   selector: 'app-favorite-input',
@@ -10,23 +10,20 @@ export class FavoriteInputComponent implements OnInit {
 
   constructor() { }
 
-  @Input() favoriteInputArray : Array<ITodo>;
+  @Input() favoriteInputArray : Array<IFavorite>;
 
-  firstName: string;
-  lastName: string;
-  todoField: string;
+  movieName: string;
+  additionalNotes: string;
 
-  addTodo(){
+  addFavorite(){
     this.favoriteInputArray.push(
       {
-        firstName: this.firstName,
-        lastName: this.lastName,
-        todoField: this.todoField
+        movieName: this.movieName,
+        additionalNotes: this.additionalNotes,
       });
 
-    this.firstName = '';
-    this.lastName = '';
-    this.todoField = '';
+    this.movieName = '';
+    this.additionalNotes = '';
   }
 
   ngOnInit(): void {

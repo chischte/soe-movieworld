@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ITodo} from "../../../model/ITodo";
+import {IFavorite} from "../../../model/IFavorite";
 
 @Component({
   selector: 'app-favorite-list',
@@ -11,12 +11,12 @@ export class FavoriteListComponent implements OnInit {
   constructor() {
   }
 
-  @Input() favoriteListArray: Array<ITodo>;
+  @Input() favoriteListArray: Array<IFavorite>;
 
   ngOnInit(): void {
   }
 
-  deleteTodo(msg: ITodo) {
+  deleteFavorite(msg: IFavorite) {
     const index: number = this.favoriteListArray.indexOf(msg);
     if (index !== -1) {
       this.favoriteListArray.splice(index, 1);

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ITodo} from "../model/ITodo";
+import {IFavorite} from "../model/IFavorite";
 
 @Component({
   selector: 'app-root',
@@ -9,5 +9,5 @@ import {ITodo} from "../model/ITodo";
 export class AppComponent {
   title = 'movieWorld';
 
-  todoListArray : Array<ITodo> = [];
+  todoListArray : Array<IFavorite> = [];
 }

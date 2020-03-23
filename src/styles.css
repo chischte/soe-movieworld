@@ -1,27 +1,32 @@
 @import url("../node_modules/bootstrap/dist/css/bootstrap.css");
 
-.todo-list-input-class{
-  background-color: goldenrod !important;
-  margin: 5px;
-  padding: 10px;
+body{
+  background-color: lightgrey !important;
 }
 
-.input-group.md-form.form-sm.form-1 input{
-  border: 1px solid #bdbdbd;
-  border-top-right-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
+textarea {
+  width: 67%;
+  height: 85px;
+  padding: 15px 22px;
+  box-sizing: border-box;
+  border: 4px solid #ccc;
+  border-radius: 5px;
+  background-color: rgba(119, 116, 116, 0.466);
+  resize: none;
 }
-.input-group.md-form.form-sm.form-2 input {
-  border: 1px solid #bdbdbd;
-  border-top-left-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
+
+input {
+  width: 80%;
+  height: 45px;
+  padding: 15px 22px;
+  box-sizing: border-box;
+  border: 4px solid #ccc;
+  border-radius: 5px;
+  background-color: rgba(119, 116, 116, 0.466);
 }
-.input-group.md-form.form-sm.form-2 input.red-border {
-  border: 1px solid #ef9a9a;
-}
-.input-group.md-form.form-sm.form-2 input.lime-border {
-  border: 1px solid #cddc39;
-}
-.input-group.md-form.form-sm.form-2 input.amber-border {
-  border: 1px solid #ffca28;
+
+.label-input {
+  font-size: x-large;
+  font-weight: bold;
+  color: #555555;
 }

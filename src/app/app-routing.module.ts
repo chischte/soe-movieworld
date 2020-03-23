@@ -4,7 +4,7 @@ import {HomeComponent} from "./component/menu/home/home.component";
 import {ActualComponent} from "./component/menu/actual/actual.component";
 import {BestComponent} from "./component/menu/best/best.component";
 import {PopularComponent} from "./component/menu/popular/popular.component";
-import {FavoriteInputComponent} from "./component/menu/favorite/favorite-input/favorite-input.component";
+import {FavoritePageComponent} from "./component/menu/favorite/favorite-page/favorite-page.component";
 
 
 const routes: Routes = [
@@ -12,7 +12,7 @@ const routes: Routes = [
     { path: 'actual', component: ActualComponent},
     { path: 'best', component: BestComponent},
     { path: 'popular', component: PopularComponent},
-    { path: 'favorite', component: FavoriteInputComponent}
+    { path: 'favorite', component: FavoritePageComponent}
   ];
 
 @NgModule({
