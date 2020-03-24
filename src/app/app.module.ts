@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule,  } from '@angular/core';
+import {HttpClientModule} from "@angular/common/http";
 
 import { HeaderComponent } from './component/navigation/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +14,7 @@ import { HomeComponent } from './component/menu/home/home.component';
 import { FavoriteInputComponent } from './component/menu/favorite/favorite-input/favorite-input.component';
 import { FavoriteListComponent } from './component/menu/favorite/favorite-list/favorite-list.component';
 import { FavoritePageComponent } from './component/menu/favorite/favorite-page/favorite-page.component';
+import {MovieDataServiceService} from "./service/movie-data-service.service";
 
 
 @NgModule({
@@ -29,12 +31,13 @@ import { FavoritePageComponent } from './component/menu/favorite/favorite-page/f
     FavoritePageComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [MovieDataServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

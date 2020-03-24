@@ -1,7 +1,7 @@
 @import url("../node_modules/bootstrap/dist/css/bootstrap.css");
 
 body{
-  background-color: lightgrey !important;
+  background-color: #8B9196 !important;
 }
 
 textarea {
@@ -29,4 +29,8 @@ input {
   font-size: x-large;
   font-weight: bold;
   color: #555555;
+}
+
+.footer-class{
+  border-top: 2px solid rebeccapurple;
 }

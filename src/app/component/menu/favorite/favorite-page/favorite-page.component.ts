@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {IFavorite} from "../../../model/IFavorite";
 
 @Component({
   selector: 'app-favorite-page',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./favorite-page.component.css']
 })
 export class FavoritePageComponent implements OnInit {
+  favoriteListArray : Array<IFavorite> = [];
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
 }

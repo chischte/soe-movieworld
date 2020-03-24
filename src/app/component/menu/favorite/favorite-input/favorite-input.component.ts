@@ -16,11 +16,16 @@ export class FavoriteInputComponent implements OnInit {
   additionalNotes: string;
 
   addFavorite(){
-    this.favoriteInputArray.push(
-      {
-        movieName: this.movieName,
-        additionalNotes: this.additionalNotes,
-      });
+    if(this.movieName !='') {
+      this.favoriteInputArray.push(
+        {
+          movieName: this.movieName,
+          additionalNotes: this.additionalNotes,
+        });
+    }
+    else{
+      alert('Damit ein Film gespeichert werden kann, musst du diesem einen Namen geben');
+    }
 
     this.movieName = '';
     this.additionalNotes = '';
