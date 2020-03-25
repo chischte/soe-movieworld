@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {IGenre} from "../component/model/IGenre";
-import {ITopRated} from "../component/model/ITopRated";
+import {ITopRatedPage} from "../component/model/ITopRatedPage";
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +17,11 @@ export class MovieDataServiceService {
 
   constructor(private _https: HttpClient) { }
 
-
   getGenre(){
     return this._https.get<IGenre[]>(this.genreUrl);
   }
 
-  getTopRated(){
-    return this._https.get<ITopRated[]>(this.topRated);
+  getTopRatedPage(){
+    return this._https.get<ITopRatedPage[]>(this.topRated);
   }
 }

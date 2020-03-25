@@ -10,12 +10,16 @@
 <!--</div>-->
 
 
+<button type="submit" (click)="getTopRated();" class="btn btn-primary">Top Rated</button><br>
 
-<div *ngIf="topRatedList$">
-  <div *ngFor="let topRated of topRatedList$">
-    <div *ngIf="topRated">
-      <ul *ngFor="let top of topRated">
-        <li>{{top.name}} - {{top.original_title}} - {{top.overview}}</li>
+<div *ngIf="topRated$">
+  <div *ngFor="let top of topRated$">
+    <div *ngIf="top">
+      <ul>
+        <li><p>{{top.vote_average}}</p>
+          <p>{{top.original_title}}</p>
+          <p>{{top.overview}}</p>
+        </li>
       </ul>
     </div>
   </div>
