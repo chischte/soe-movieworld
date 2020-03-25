@@ -1,26 +1,27 @@
 import {Component, OnInit} from '@angular/core';
-import {IFavorite} from "../model/IFavorite";
-import {MovieDataServiceService} from "../../service/movie-data-service.service";
-import {IGenre} from "../model/IGenre";
-import {ITopRated} from "../model/ITopRated";
-import {ITopRatedPage} from "../model/ITopRatedPage";
+import {IFavorite} from '../model/IFavorite';
+import {MovieDataServiceService} from '../../service/movie-data-service.service';
+import {IGenre} from '../model/IGenre';
+import {ITopRated} from '../model/ITopRated';
+import {ITopRatedPage} from '../model/ITopRatedPage';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'Movie World';
-  genresTypes$ : IGenre[] = [];
+  genresTypes$: IGenre[] = [];
   topRatedPage$: ITopRatedPage[] = [];
 
-  todoListArray : Array<IFavorite> = [];
+  todoListArray: Array<IFavorite> = [];
 
-  testTopRatedPage : Array<ITopRatedPage>;
-  topRated$ : Array<ITopRated>;
+  testTopRatedPage: Array<ITopRatedPage>;
+  topRated$: Array<ITopRated>;
 
-  constructor(private movieDataServiceService: MovieDataServiceService) {  }
+  constructor(private movieDataServiceService: MovieDataServiceService) {
+  }
 
   ngOnInit() {
 
@@ -34,9 +35,9 @@ export class AppComponent implements OnInit{
 
   }
 
-  async getTopRatedRequestArray(){
+  async getTopRatedRequestArray() {
     let ret = await this.movieDataServiceService.getTopRatedPage().toPromise();
 
-    return ret["results"];
+    return ret['results'];
   }
 }

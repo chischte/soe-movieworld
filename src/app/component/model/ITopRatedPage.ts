@@ -1,4 +1,4 @@
-import {ITopRated} from "./ITopRated";
+import {ITopRated} from './ITopRated';
 
 export interface ITopRatedPage {
   page: number,
