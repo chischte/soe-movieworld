@@ -1,9 +1,21 @@
 <app-header></app-header>
-<div *ngIf="genresTypes$">
-  <div *ngFor="let genres of genresTypes$">
-    <div *ngIf="genres">
-      <ul *ngFor="let genre of genres">
-        <li>{{genre.name}}</li>
+<!--<div *ngIf="genresTypes$">-->
+<!--  <div *ngFor="let genres of genresTypes$">-->
+<!--    <div *ngIf="genres">-->
+<!--      <ul *ngFor="let genre of genres">-->
+<!--        <li>{{genre.name}}</li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+
+<div *ngIf="topRatedList$">
+  <div *ngFor="let topRated of topRatedList$">
+    <div *ngIf="topRated">
+      <ul *ngFor="let top of topRated">
+        <li>{{top.name}} - {{top.original_title}} - {{top.overview}}</li>
       </ul>
     </div>
   </div>
