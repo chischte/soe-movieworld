@@ -1,4 +1,4 @@
 export interface IFavorite {
-  movieName : string;
-  additionalNotes : string;
+  movieName: string;
+  additionalNotes: string;
 }
