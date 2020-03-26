@@ -1,17 +1,19 @@
-<h1 class="text-center display-2 bg-secondary mb-sm-3 pb-sm-3">Deine Favoritenliste</h1>
-<table class="table table-hover table-striped table-dark">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Movie Name</th>
-    <th scope="col">Zusatzinformationen</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let item of favoriteListArray">
-    <td><button (click)="deleteFavorite(item);" type="submit" class="btn btn-danger">X</button></td>
-    <td>{{item.movieName}}</td>
-    <td>{{item.additionalNotes}}</td>
-  </tr>
-  </tbody>
-</table>
+<div *ngIf="favoriteListArray">
+  <h2 class="text-center display-2 bg-secondary pb-lg-3 favorite-header-band">Deine Favoritenliste</h2>
+  <table class="table table-hover table-striped table-dark favorite-header-table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Movie Name</th>
+      <th scope="col">Zusatzinformationen</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of favoriteListArray">
+      <td><button (click)="deleteFavorite(item);" type="submit" class="btn btn-danger">X</button></td>
+      <td>{{item.movieName}}</td>
+      <td>{{item.additionalNotes}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

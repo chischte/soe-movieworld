@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieSearchService } from "../../../service/movie-search.service";
+import {ISearchMoviePage} from "../../../model/ISearchMoviePage";
+import {ISearchMovie} from "../../../model/ISearchMovie";
 
 @Component({
   selector: 'app-home',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  private searchedMovie: [ISearchMovie];
 
-  constructor() { }
+  constructor(private movieSearchService: MovieSearchService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    return this.movieSearchService.getSearchedMovie()
+      .subscribe((data:ISearchMoviePage) =>
+      {
+        this.searchedMovie = data.results;
+        console.log(Object.values(data.results));
+      });
   }
 
 }

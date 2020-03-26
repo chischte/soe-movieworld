@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ITopRated} from "../../../model/ITopRated";
+import {MovieDataServiceService} from "../../../service/movie-data-service.service";
+import {ITopRatedPage} from "../../../model/ITopRatedPage";
 
 @Component({
   selector: 'app-best',
@@ -6,10 +9,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./best.component.css']
 })
 export class BestComponent implements OnInit {
+  topRated$ : ITopRated[] = [];
+  topRatedImageBasePath : string = 'http://image.tmdb.org/t/p/w200/';
 
-  constructor() { }
+  constructor(private movieDataServiceService: MovieDataServiceService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    return this.movieDataServiceService.getTopRatedPage()
+      .subscribe((data:ITopRatedPage) =>
+      {
+        this.topRated$ = data.results;
+      });
   }
-
 }

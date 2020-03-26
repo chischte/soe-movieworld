@@ -9,22 +9,7 @@
 <!--  </div>-->
 <!--</div>-->
 
-
-<button type="submit" (click)="getTopRated();" class="btn btn-primary">Top Rated</button><br>
-
-<div *ngIf="topRated$">
-  <div *ngFor="let top of topRated$">
-    <div *ngIf="top">
-      <ul>
-        <li><p>{{top.vote_average}}</p>
-          <p>{{top.original_title}}</p>
-          <p>{{top.overview}}</p>
-        </li>
-      </ul>
-    </div>
-  </div>
+<div class="background-image">
+  <router-outlet></router-outlet>
 </div>
-
-
-<router-outlet></router-outlet>
 <app-footer></app-footer>

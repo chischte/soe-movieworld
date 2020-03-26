@@ -1,16 +1,15 @@
-<div class="create-favorite text-center mb-sm-2">
-  <h2 class="display-2 bg-secondary mb-sm-3 pb-sm-3">Füge ein Movie zu deinen Favoriten hinzu</h2>
+<div class="text-center mb-lg-2">
+  <h2 class="display-2 bg-secondary mb-lg-3 pb-lg-3 favorite-header-band">Füge ein Movie zu deinen Favoriten hinzu</h2>
   <div>
-    <label class="favorite-input-label mr-sm-5">
-
+    <label class="favorite-input-label mr-lg-5">
       <span class="label-input">Movie Name</span>
-      <input [(ngModel)]="movieName" type="text" placeholder="Matrix" />
+      <input class="favorite-movie-input-text" [(ngModel)]="movieName" type="text" placeholder="Matrix" />
     </label>
   </div>
   <div>
-    <label class="favorite-input-label mr-sm-5" for="favorite">
+    <label class="favorite-input-label mr-lg-5" for="favorite">
       <span class="label-input">Zusatzinformationen</span>
-      <textarea [(ngModel)]="additionalNotes" id="favorite" placeholder="Zusätzliche informationen zum Movie"></textarea>
+      <textarea class="favorite-movie-input-text" [(ngModel)]="additionalNotes" id="favorite" placeholder="Zusätzliche informationen zum Movie"></textarea>
     </label>
   </div>
   <button type="submit" (click)="addFavorite();" class="btn btn-primary">Movie in die Favoritenliste</button><br>

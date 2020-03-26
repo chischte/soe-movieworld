@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {IGenre} from "../component/model/IGenre";
-import {ITopRatedPage} from "../component/model/ITopRatedPage";
+import {IGenre} from "../model/IGenre";
+import {ITopRatedPage} from "../model/ITopRatedPage";
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class MovieDataServiceService {
   baseUrl:string = "https://api.themoviedb.org/3/";
   apiKey:string  = "api_key=9daf07285a3560ae7a1a515899ab5db5";
@@ -22,6 +23,6 @@ export class MovieDataServiceService {
   }
 
   getTopRatedPage(){
-    return this._https.get<ITopRatedPage[]>(this.topRated);
+    return this._https.get<ITopRatedPage>(this.topRated);
   }
 }

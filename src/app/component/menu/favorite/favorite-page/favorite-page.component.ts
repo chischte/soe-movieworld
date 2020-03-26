@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {IFavorite} from "../../../model/IFavorite";
+import {IFavorite} from "../../../../model/IFavorite";
 
 @Component({
   selector: 'app-favorite-page',

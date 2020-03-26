@@ -1,1 +1,12 @@
-<p>best works!</p>
+<div class="container pt-2" *ngIf="topRated$">
+  <div class="row mb-2" *ngFor="let top of topRated$; let index = index" [ngClass]="{'odd': 0 === index % 2, 'even': 1 === index % 2}">
+    <div class="col-lg-3 mb-1 mt-1">
+      <img src="{{this.topRatedImageBasePath}}{{top.poster_path}}">
+    </div>
+    <div class="col-lg-9 mt-2">
+      <h4 class="card-title">{{top.title}}</h4>
+      <p>{{top.overview}}</p>
+      <p><strong>Bewertung: </strong>{{top.vote_average}}</p>
+    </div>
+  </div>
+</div>

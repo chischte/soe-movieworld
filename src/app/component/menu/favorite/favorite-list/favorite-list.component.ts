@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IFavorite} from "../../../model/IFavorite";
+import {IFavorite} from "../../../../model/IFavorite";
 
 @Component({
   selector: 'app-favorite-list',
@@ -8,8 +8,7 @@ import {IFavorite} from "../../../model/IFavorite";
 })
 export class FavoriteListComponent implements OnInit {
 
-  constructor() {
-  }
+  constructor() {}
 
   @Input() favoriteListArray: Array<IFavorite>;
 
