@@ -1,15 +1,9 @@
 <app-header></app-header>
-<!--<div *ngIf="genresTypes$">-->
-<!--  <div *ngFor="let genres of genresTypes$">-->
-<!--    <div *ngIf="genres">-->
-<!--      <ul *ngFor="let genre of genres">-->
-<!--        <li>{{genre.name}}</li>-->
-<!--      </ul>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
-
 <div class="background-image">
-  <router-outlet></router-outlet>
+  <div *ngIf="isSearchLandingPageViewable == false; else elseBlock">
+    <app-search-landing-page></app-search-landing-page>
+  </div>
+  <ng-template #elseBlock><router-outlet></router-outlet></ng-template>
+
 </div>
 <app-footer></app-footer>

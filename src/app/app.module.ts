@@ -15,6 +15,9 @@ import {FavoriteInputComponent} from './component/menu/favorite/favorite-input/f
 import {FavoriteListComponent} from './component/menu/favorite/favorite-list/favorite-list.component';
 import {FavoritePageComponent} from './component/menu/favorite/favorite-page/favorite-page.component';
 import {MovieDataServiceService} from './service/movie-data-service.service';
+import { SearchLandingPageComponent } from './component/menu/search-landing-page/search-landing-page.component';
+import {MovieSearchService} from "./service/movie-search.service";
+import { SearchBarComponent } from './component/searchbar/search-bar.component';
 
 
 @NgModule({
@@ -29,6 +32,8 @@ import {MovieDataServiceService} from './service/movie-data-service.service';
     FavoriteInputComponent,
     FavoriteListComponent,
     FavoritePageComponent,
+    SearchLandingPageComponent,
+    SearchBarComponent,
   ],
   imports: [
     HttpClientModule,
@@ -37,7 +42,7 @@ import {MovieDataServiceService} from './service/movie-data-service.service';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [MovieDataServiceService],
+  providers: [MovieDataServiceService, MovieSearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

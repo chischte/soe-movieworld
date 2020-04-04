@@ -1,7 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {IFavorite} from "../../model/IFavorite";
-import {MovieDataServiceService} from "../../service/movie-data-service.service";
-import {IGenre} from "../../model/IGenre";
+import {MovieSearchService} from "../../service/movie-search.service";
 
 @Component({
   selector: 'app-root',
@@ -10,13 +8,18 @@ import {IGenre} from "../../model/IGenre";
 })
 export class AppComponent implements OnInit{
   title = 'Movie World';
-  genresTypes$ : IGenre[] = [];
 
-  todoListArray : Array<IFavorite> = [];
+  public searchTerm$: string = "";
+  isSearchLandingPageViewable: boolean;
 
-  constructor(private movieDataServiceService: MovieDataServiceService) {  }
+  constructor(private movieSearchService : MovieSearchService) {  }
 
   ngOnInit() {
-    // return this.movieDataServiceService.getGenre().subscribe(data => { this.genresTypes$ = Object.values(data); console.log(Object.values(data)); });
+    this.movieSearchService.searchTerm.subscribe((newValue: string) =>
+    {
+      this.isSearchLandingPageViewable = !this.isSearchLandingPageViewable;
+      this.searchTerm$ = newValue;
+      console.log("this.searchTerm$: " + this.searchTerm$);
+    });
   }
 }
