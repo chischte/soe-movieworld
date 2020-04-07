@@ -34,3 +34,6 @@ input {
 .footer-class{
   border-top: 2px solid rebeccapurple;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

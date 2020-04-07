@@ -7,6 +7,7 @@
           [ngClass]="{'btn-primary active': displayMode === 2}" >
     <i class="fa fa-list fa-3x"></i>
   </button>
+  <p><input class="input-group" type="text" placeholder="Die Liste filtern"></p>
 </div>
 
 <div class="center">
@@ -15,10 +16,11 @@
     <div class="m-1 p-1 row-grid" *ngFor="let top of topRated$; let index = index" [ngClass]="{'odd': 0 === index % 2, 'even': 1 === index % 2}">
       <div>
         <img src="{{this.topRatedImageBasePath}}{{top.poster_path}}" alt="Image of the movie">
-        <span>
+        <div>
           <i class="card-title mr-3">{{top.title}}</i>
+          <br />
           <button type="submit" (click)="addFavorite(index);" class="btn btn-outline-light align-bottom">Favorite</button>
-        </span>
+        </div>
       </div>
     </div>
   </div>

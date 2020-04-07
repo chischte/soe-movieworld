@@ -18,6 +18,8 @@ import {MovieDataServiceService} from './service/movie-data-service.service';
 import { SearchLandingPageComponent } from './component/menu/search-landing-page/search-landing-page.component';
 import {MovieSearchService} from "./service/movie-search.service";
 import { SearchBarComponent } from './component/searchbar/search-bar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -34,6 +36,7 @@ import { SearchBarComponent } from './component/searchbar/search-bar.component';
     FavoritePageComponent,
     SearchLandingPageComponent,
     SearchBarComponent,
+    LoginComponent,
   ],
   imports: [
     HttpClientModule,
@@ -41,6 +44,7 @@ import { SearchBarComponent } from './component/searchbar/search-bar.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [MovieDataServiceService, MovieSearchService],
   bootstrap: [AppComponent]
