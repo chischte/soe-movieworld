@@ -2,27 +2,28 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {IGenre} from "../model/IGenre";
 import {ITopRatedPage} from "../model/ITopRatedPage";
+import {ServiceHelper} from "../serviceHelper/service-helper";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class MovieDataServiceService {
-  baseUrl:string = "https://api.themoviedb.org/3/";
-  apiKey:string  = "api_key=9daf07285a3560ae7a1a515899ab5db5";
+  serviceHelper:ServiceHelper = new ServiceHelper();
   language:string = "&language=en-US";
-  page:string = "&page=1";
 
-  genreUrl:string = this.baseUrl + "genre/movie/list?" + this.apiKey + this.language;
-  topRated:string = this.baseUrl + "movie/top_rated?"  + this.apiKey + this.language + this.page;
-
-  constructor(private _https: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   getGenre(){
-    return this._https.get<IGenre[]>(this.genreUrl);
+    let firstPath:string = "genre/movie/list?";
+    let genreUrl:string = this.serviceHelper.createUrlPath(firstPath, "", this.language);
+    return this.httpClient.get<IGenre[]>(genreUrl);
   }
 
   getTopRatedPage(){
-    return this._https.get<ITopRatedPage>(this.topRated);
+    let firstPath:string  = "movie/top_rated?";
+    let page:string = "&page=1";
+    let topRated:string = this.serviceHelper.createUrlPath(firstPath, "", this.language, page);
+    return this.httpClient.get<ITopRatedPage>(topRated);
   }
 }

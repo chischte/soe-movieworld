@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IFavorite} from "../../../../model/IFavorite";
+import {MovieFavoriteService} from "../../../../service/movie-favorite.service";
 
 @Component({
   selector: 'app-favorite-list',
@@ -8,17 +9,19 @@ import {IFavorite} from "../../../../model/IFavorite";
 })
 export class FavoriteListComponent implements OnInit {
 
-  constructor() {}
+  constructor(private movieFavoriteService: MovieFavoriteService) {
+  }
 
   @Input() favoriteListArray: Array<IFavorite>;
+  @Output() updateFavoriteList: EventEmitter<void> = new EventEmitter<void>();
 
   ngOnInit(): void {
   }
 
-  deleteFavorite(msg: IFavorite) {
-    const index: number = this.favoriteListArray.indexOf(msg);
-    if (index !== -1) {
-      this.favoriteListArray.splice(index, 1);
-    }
+  deleteFavorite(index: number): void {
+    this.movieFavoriteService.deleteFavorite(this.favoriteListArray[index])
+      .subscribe((response: any) => {
+        this.updateFavoriteList.emit();
+      });
   }
 }

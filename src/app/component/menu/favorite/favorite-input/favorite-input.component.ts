@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IFavorite} from "../../../../model/IFavorite";
+import {MovieFavoriteService} from "../../../../service/movie-favorite.service";
 
 @Component({
   selector: 'app-favorite-input',
@@ -8,22 +9,25 @@ import {IFavorite} from "../../../../model/IFavorite";
 })
 export class FavoriteInputComponent implements OnInit {
 
-  constructor() { }
-
-  @Input() favoriteInputArray : Array<IFavorite>;
+  constructor(private movieFavoriteService: MovieFavoriteService) {
+  }
 
   movieName: string;
   additionalNotes: string;
+  @Input() favoriteInputArray: Array<IFavorite>;
+  @Output() updateFavoriteList: EventEmitter<void> = new EventEmitter<void>();
 
-  addFavorite(){
-    if(this.movieName !='') {
-      this.favoriteInputArray.push(
-        {
-          movieName: this.movieName,
-          additionalNotes: this.additionalNotes,
+  addFavorite() {
+    if (this.movieName != '') {
+      const favorite = {movieName: this.movieName, additionalNotes: this.additionalNotes};
+      this.movieFavoriteService.insertFavorite(favorite)
+        .subscribe((response: any) => {
+          this.movieName = '';
+          this.additionalNotes = '';
+          this.updateFavoriteList.emit();
         });
-    }
-    else{
+      alert("Gugus");
+    } else {
       alert('Damit ein Film gespeichert werden kann, musst du diesem einen Namen geben');
     }
 

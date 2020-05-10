@@ -9,10 +9,14 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of favoriteListArray">
-      <td><button (click)="deleteFavorite(item);" type="submit" class="btn btn-danger">X</button></td>
-      <td>{{item.movieName}}</td>
-      <td>{{item.additionalNotes}}</td>
+    <tr *ngFor="let item of favoriteListArray; let i = index">
+      <td width="5%">
+        <button (click)="deleteFavorite(i);" type="submit" class="btn btn-danger">
+          <i class="fa fa-trash-o fa-2x"></i>
+        </button>
+      </td>
+      <td width="30%">{{item.movieName}}</td>
+      <td width="65%">{{item.additionalNotes}}</td>
     </tr>
     </tbody>
   </table>

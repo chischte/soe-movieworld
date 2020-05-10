@@ -3,5 +3,8 @@
 }
 
 .favorite-header-band{
-  opacity: 0.6;
+  opacity: 0.75;
+  border: 1px solid black;
+  padding-top: 12px;
+  color: #FFFFFF;
 }

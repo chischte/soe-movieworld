@@ -1,19 +1,18 @@
 import {Injectable, Input} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {ISearchMoviePage} from "../model/ISearchMoviePage";
 import {BehaviorSubject} from "rxjs";
+import {IGenre} from "../model/IGenre";
+import {ServiceHelper} from "../serviceHelper/service-helper";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class MovieSearchService {
-
-  baseUrl:string = "https://api.themoviedb.org/3/";
-  apiKey:string  = "api_key=9daf07285a3560ae7a1a515899ab5db5";
+  serviceHelper:ServiceHelper = new ServiceHelper();
   language:string = "&language=en-US";
   page:string = "&page=1";
-  searchPath:string = "search/movie?";
+
   searchMovieUrl:string;
   @Input() searchInputField: string;
   public searchTerm: BehaviorSubject<string> = new BehaviorSubject<string>(null);
@@ -21,8 +20,11 @@ export class MovieSearchService {
   constructor(private _https: HttpClient) { }
 
   getSearchedMovie(){
-    console.log("searchInputFieldService " + this.searchInputField);
-    this.searchMovieUrl = this.baseUrl + this.searchPath + this.apiKey + "&query=" + this.searchTerm.value + this.page;
-    return this._https.get<ISearchMoviePage>(this.searchMovieUrl);
+    let firstPath:string = "search/movie?";
+    let searchPath:string = this.serviceHelper.createUrlPath(firstPath, "", this.language, this.page, this.searchTerm.value );
+    console.log(searchPath);
+    console.log("this.searchTerm.value " + this.searchTerm.value);
+    console.log(this.searchTerm);
+    return this._https.get<IGenre[]>(searchPath);
   }
 }
