@@ -19,7 +19,6 @@ import { SearchLandingPageComponent } from './component/menu/search-landing-page
 import {MovieSearchService} from "./service/movie-search.service";
 import { SearchBarComponent } from './component/searchbar/search-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -36,7 +35,6 @@ import { LoginComponent } from './login/login.component';
     FavoritePageComponent,
     SearchLandingPageComponent,
     SearchBarComponent,
-    LoginComponent,
   ],
   imports: [
     HttpClientModule,
