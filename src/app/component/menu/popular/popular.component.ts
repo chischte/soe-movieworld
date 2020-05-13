@@ -3,6 +3,7 @@ import {ITopRated} from '../../../model/ITopRated';
 import {MovieDataServiceService} from '../../../service/movie-data-service.service';
 import {MovieFavoriteService} from '../../../service/movie-favorite.service';
 import {ITopRatedPage} from '../../../model/ITopRatedPage';
+import {IPopular} from '../../../model/IPopular';
 
 @Component({
   selector: 'app-popular',
@@ -10,7 +11,7 @@ import {ITopRatedPage} from '../../../model/ITopRatedPage';
   styleUrls: ['./popular.component.css']
 })
 export class PopularComponent implements OnInit {
-  topRated$: ITopRated[] = [];
+  topRated$: IPopular[] = [];
   genre: number;
   topRatedImageBasePath: string = 'http://image.tmdb.org/t/p/w200/';
   displayMode: number = 1;

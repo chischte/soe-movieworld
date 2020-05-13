@@ -1,6 +1,6 @@
 import {IGenre} from './IGenre';
 
-export interface ITopRated {
+export interface IPopular {
   popularity: number,
   vote_count: number,
   video: boolean,
