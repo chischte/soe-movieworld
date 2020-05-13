@@ -26,4 +26,12 @@ export class MovieDataServiceService {
     let topRated:string = this.serviceHelper.createUrlPath(firstPath, "", this.language, page);
     return this.httpClient.get<ITopRatedPage>(topRated);
   }
+
+  getPopularPage(){
+    let firstPath:string  = "movie/top_rated?";
+    let page:string = "&page=1";
+    let topRated:string = this.serviceHelper.createUrlPath(firstPath, "", this.language, page);
+    return this.httpClient.get<ITopRatedPage>(topRated);
+  }
+
 }

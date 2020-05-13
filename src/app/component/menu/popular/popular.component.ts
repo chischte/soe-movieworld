@@ -4,6 +4,7 @@ import {MovieDataServiceService} from '../../../service/movie-data-service.servi
 import {MovieFavoriteService} from '../../../service/movie-favorite.service';
 import {ITopRatedPage} from '../../../model/ITopRatedPage';
 import {IPopular} from '../../../model/IPopular';
+import {IPopularPage} from '../../../model/IPopularPage';
 
 @Component({
   selector: 'app-popular',
@@ -20,8 +21,8 @@ export class PopularComponent implements OnInit {
   }
 
   ngOnInit() {
-    return this.movieDataServiceService.getTopRatedPage()
-      .subscribe((data: ITopRatedPage) => {
+    return this.movieDataServiceService.getPopularPage()
+      .subscribe((data: IPopularPage) => {
         this.topRated$ = data.results;
       });
   }
