@@ -12,3 +12,4 @@ export class ServiceHelper {
     return "api_key=9daf07285a3560ae7a1a515899ab5db5";
   }
 }
+

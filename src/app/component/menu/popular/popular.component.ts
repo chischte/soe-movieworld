@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ITopRated} from '../../../model/ITopRated';
 import {MovieDataServiceService} from '../../../service/movie-data-service.service';
 import {MovieFavoriteService} from '../../../service/movie-favorite.service';
-import {ITopRatedPage} from '../../../model/ITopRatedPage';
 import {IPopular} from '../../../model/IPopular';
 import {IPopularPage} from '../../../model/IPopularPage';
 
@@ -48,18 +46,6 @@ export class PopularComponent implements OnInit {
   getGenrePipe(action: string) {
     // TODO: use this.topRated$ variable for the genre pipe do not use the original one because you would overwrite it
     let topGenreRated = this.topRated$;
-
-    // let allAvailableGenres = this.movieDataServiceService.getGenre()
-    //   .subscribe((data: IGenre) => {
-    //     this.genre = data.id;
-    //   });
-
-    // console.log(allAvailableGenres);
-
-    // topRated.forEach(function (value) {
-    //   console.log(value.genre_ids);
-    //   topRatedGenreIds += value.genre_ids
-    // });
 
     console.log("GenreButtonClickWorked");
   }
