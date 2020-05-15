@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ITopRated} from "../../../model/ITopRated";
-import {MovieDataServiceService} from "../../../service/movie-data-service.service";
-import {ITopRatedPage} from "../../../model/ITopRatedPage";
-import {MovieFavoriteService} from "../../../service/movie-favorite.service";
+import {ITopRated} from '../../../model/ITopRated';
+import {MovieDataServiceService} from '../../../service/movie-data-service.service';
+import {ITopRatedPage} from '../../../model/ITopRatedPage';
+import {MovieFavoriteService} from '../../../service/movie-favorite.service';
 
 @Component({
   selector: 'app-best',

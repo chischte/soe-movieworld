@@ -16,7 +16,7 @@ import {FavoriteListComponent} from './component/menu/favorite/favorite-list/fav
 import {FavoritePageComponent} from './component/menu/favorite/favorite-page/favorite-page.component';
 import {MovieDataServiceService} from './service/movie-data-service.service';
 import { SearchLandingPageComponent } from './component/menu/search-landing-page/search-landing-page.component';
-import {MovieSearchService} from "./service/movie-search.service";
+
 import { SearchBarComponent } from './component/searchbar/search-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -44,7 +44,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     BrowserAnimationsModule,
   ],
-  providers: [MovieDataServiceService, MovieSearchService],
+  providers: [MovieDataServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

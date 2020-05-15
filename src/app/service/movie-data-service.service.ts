@@ -30,11 +30,24 @@ export class MovieDataServiceService {
   }
 
   getPopularPage() {
-    let firstPath: string = 'discover/movie?';
+    let firstPath: string = 'movie/popular?';
     let page: string = '&page=1';
     let afterApiKeyPath: string = '&sort_by=popularity.desc&include_adult=true&include_video=false';
     let popular: string = this.serviceHelper.createUrlPath(firstPath, '', this.language, page, afterApiKeyPath);
     return this.httpClient.get<IPopularPage>(popular);
   }
+
+  getLatest() {
+    let firstPath: string = 'movie/upcoming?';
+    let page: string = '&page=1';
+    let afterApiKeyPath: string = '&sort_by=popularity.desc&include_adult=true&include_video=false';
+    let popular: string = this.serviceHelper.createUrlPath(firstPath, '', this.language, page, afterApiKeyPath);
+    return this.httpClient.get<IPopularPage>(popular);
+  }
+
+
+
+
+
 
 }

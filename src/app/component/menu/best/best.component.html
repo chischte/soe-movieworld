@@ -15,7 +15,7 @@
 
 <div class="center">
   <!-- Grid View -->
-  <div class="row col-6" *ngIf="displayMode === 1">
+  <div class="row col-11" *ngIf="displayMode === 1">
     <div class="m-1 p-1 row-grid" *ngFor="let top of topRated$; let index = index" [ngClass]="{'odd': 0 === index % 2, 'even': 1 === index % 2}">
       <div>
         <img src="{{this.topRatedImageBasePath}}{{top.poster_path}}" alt="Image of the movie">
