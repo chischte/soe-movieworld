@@ -8,10 +8,10 @@ import {ISearchMovie} from "../../../model/ISearchMovie";
 })
 
 export class SearchLandingPageComponent implements OnInit {
-  searchMoviePage$ : ISearchMovie[] = [];
-  imageBasePath : string = 'http://image.tmdb.org/t/p/w200/';
+  searchMoviePage$: ISearchMovie[] = [];
+  imageBasePath: string = 'http://image.tmdb.org/t/p/w200/';
 
-  @Input() searchInput : string;
+  @Input() searchInput: string;
 
   constructor() { }
 
