@@ -7,10 +7,6 @@
           [ngClass]="{'btn-primary active': displayMode === 2}" >
     <i class="fa fa-list fa-3x"></i>
   </button>
-  <p>
-    <input class="input-group" type="text" placeholder="Die Liste filtern">
-  </p>
-  <button type="submit" (click)="getGenrePipe('Action');" class="btn btn-outline-light align-bottom">Action</button>
 </div>
 
 <div class="center">
@@ -21,7 +17,7 @@
         <img class="picture-middle" src="{{this.topRatedImageBasePath}}{{top.poster_path}}" alt="Image of the movie">
         <div>
           <br>
-          <h3 class="card-title mr-3">{{top.title}}</h3>
+          <h3 class="card-title mr-3 minheight">{{top.title}}</h3>
           <button type="submit" (click)="addFavorite(index);" class="btn btn-outline-light align-bottom">Favorite</button>
         </div>
       </div>
