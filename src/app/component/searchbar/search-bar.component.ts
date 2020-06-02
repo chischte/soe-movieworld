@@ -16,22 +16,17 @@ export class SearchBarComponent implements OnInit {
 
   ngOnInit(): void { }
 
-
   getSearchedMovie($event: any) {
-  /*
-    console.log("SearchBarComponent " + this.searchInputField + " $event--> " + $event);
-    this.movieSearchService.getSearchedMovie()
-      .subscribe((data:ISearchMoviePage) =>
-      {
-        this.searchMoviePage$ = data.results;
-        console.log(data.results);
-      },
-        error =>
-        {
-          console.error("Backend returned code ${{error}} " + error)
-        });
-        */
+    // console.log("SearchBarComponent " + this.searchInputField + " $event--> " + $event);
+    // this.movieSearchService.getSearchedMovie()
+    //   .subscribe((data:ISearchMoviePage) =>
+    //   {
+    //     this.searchMoviePage$ = data.results;
+    //     console.log(data.results);
+    //   },
+    //     error =>
+    //     {
+    //       console.error("Backend returned code ${{error}} " + error)
+    //     });
   }
 }
-
-

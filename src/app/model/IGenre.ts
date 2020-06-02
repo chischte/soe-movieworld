@@ -1,4 +1,6 @@
 export interface IGenre {
-  id: number;
-  name: string;
+  genres: [{
+    id: number,
+    name: string
+  }];
 }

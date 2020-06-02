@@ -18,8 +18,8 @@ export class MovieDataServiceService {
 
   getGenre() {
     let firstPath: string = 'genre/movie/list?';
-    let genreUrl: string = this.serviceHelper.createUrlPath(firstPath, '', this.language);
-    return this.httpClient.get<IGenre[]>(genreUrl);
+    let genre: string = this.serviceHelper.createUrlPath(firstPath, '', this.language);
+    return this.httpClient.get<IGenre>(genre);
   }
 
   getTopRatedPage() {
@@ -44,10 +44,4 @@ export class MovieDataServiceService {
     let popular: string = this.serviceHelper.createUrlPath(firstPath, '', this.language, page, afterApiKeyPath);
     return this.httpClient.get<IPopularPage>(popular);
   }
-
-
-
-
-
-
 }

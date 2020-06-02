@@ -24,6 +24,7 @@ export class PopularComponent implements OnInit {
         this.topRated$ = data.results;
       });
   }
+
   addFavorite(index) {
     if (index >= 0) {
       let resultOfIndex = this.topRated$[index];
@@ -49,5 +50,4 @@ export class PopularComponent implements OnInit {
 
     console.log("GenreButtonClickWorked");
   }
-
 }

@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ITopRated} from '../../../model/ITopRated';
-import {MovieDataServiceService} from '../../../service/movie-data-service.service';
-import {ITopRatedPage} from '../../../model/ITopRatedPage';
-import {MovieFavoriteService} from '../../../service/movie-favorite.service';
+import {ITopRated} from "../../../model/ITopRated";
+import {ITopRatedPage} from "../../../model/ITopRatedPage";
+import {IGenre} from "../../../model/IGenre";
+import {MovieDataServiceService} from "../../../service/movie-data-service.service";
+import {MovieFavoriteService} from "../../../service/movie-favorite.service";
 
 @Component({
   selector: 'app-best',
@@ -12,14 +13,16 @@ import {MovieFavoriteService} from '../../../service/movie-favorite.service';
 
 export class BestComponent implements OnInit {
   topRated$: ITopRated[] = [];
-  genre: number;
   topRatedImageBasePath: string = 'http://image.tmdb.org/t/p/w200/';
   displayMode: number = 1;
+  allGenres: [{ id: number; name: string }];
 
   constructor(private movieDataServiceService: MovieDataServiceService, private movieFavoriteService : MovieFavoriteService) {
   }
 
   ngOnInit() {
+    this.getAllGenresFromTMDB();
+
     return this.movieDataServiceService.getTopRatedPage()
       .subscribe((data: ITopRatedPage) => {
         this.topRated$ = data.results;
@@ -31,7 +34,6 @@ export class BestComponent implements OnInit {
       let resultOfIndex = this.topRated$[index];
 
       const favorite = {movieName: resultOfIndex.title, additionalNotes: resultOfIndex.release_date};
-      console.log(favorite);
       this.movieFavoriteService.insertFavorite(favorite)
         .subscribe((response: any) => {})
 
@@ -45,22 +47,20 @@ export class BestComponent implements OnInit {
     this.displayMode = mode;
   }
 
-  getGenrePipe(action: string) {
-    // TODO: use this.topRated$ variable for the genre pipe do not use the original one because you would overwrite it
-    let topGenreRated = this.topRated$;
+  getAllGenresFromTMDB(){
+    this.movieDataServiceService.getGenre()
+      .subscribe((data: IGenre) => {
+        this.allGenres = data.genres;
+      }, err=>{
+        console.log(err);
+      });
+  }
 
-    // let allAvailableGenres = this.movieDataServiceService.getGenre()
-    //   .subscribe((data: IGenre) => {
-    //     this.genre = data.id;
-    //   });
+  toggleGenre(genre: IGenre) {
+    console.log("toggeld ");
+  }
 
-    // console.log(allAvailableGenres);
-
-    // topRated.forEach(function (value) {
-    //   console.log(value.genre_ids);
-    //   topRatedGenreIds += value.genre_ids
-    // });
-
-    console.log("GenreButtonClickWorked");
+  getSelectedGenre(id: number) {
+    alert(id);
   }
 }
