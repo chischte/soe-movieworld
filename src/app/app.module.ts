@@ -8,7 +8,6 @@ import {AppComponent} from './component/app/app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FooterComponent} from './component/navigation/footer/footer.component';
 import {BestComponent} from './component/menu/best/best.component';
-import {ActualComponent} from './component/menu/actual/actual.component';
 import {PopularComponent} from './component/menu/popular/popular.component';
 import {HomeComponent} from './component/menu/home/home.component';
 import {FavoriteInputComponent} from './component/menu/favorite/favorite-input/favorite-input.component';
@@ -27,7 +26,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     FooterComponent,
     BestComponent,
-    ActualComponent,
     PopularComponent,
     HomeComponent,
     FavoriteInputComponent,
