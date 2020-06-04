@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
       .subscribe((data: IPopularPage) => {
         this.topRated$ = data.results;
       });
+
   }
   addFavorite(index) {
     if (index >= 0) {

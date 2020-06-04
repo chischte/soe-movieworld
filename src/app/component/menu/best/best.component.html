@@ -18,7 +18,7 @@
   <div class="button-center">
       <div *ngFor="let genre of allGenres;">
         <span>
-          <button type="submit" (click)="getSelectedGenre(genre.id)" class="btn btn-outline-light align-bottom">{{genre.name}}</button>
+          <button type="submit" (click)="getSelectedGenre(genre.id)" class="btn btn-outline-light align-bottom">{{genre.name}} {{genre.id}}</button>
         </span>
       </div>
   </div>
@@ -28,12 +28,13 @@
   <!-- Grid View -->
   <div class="row col-11" *ngIf="displayMode === 1">
     <div class="m-1 p-1 row-grid"
-         *ngFor="let top of topRated$ let index = index"
+         *ngFor="let top of topRatedfilterd let index = index"
          [ngClass]="{'odd': 0 === index % 2, 'even': 1 === index % 2}">
       <div>
         <img src="{{this.topRatedImageBasePath}}{{top.poster_path}}" alt="Image of the movie">
         <div>
           <i class="card-title mr-3">{{top.title}}</i>
+          <i class="card-title mr-3">{{top.genre_ids}}</i>
           <br/>
           <button type="submit" (click)="addFavorite(index);" class="btn btn-outline-light align-bottom">Favorite
           </button>
@@ -43,9 +44,9 @@
   </div>
   <!-- List View -->
   <div class="row col-12" *ngIf="displayMode === 2">
-    <div class="container pt-2" *ngIf="topRated$">
+    <div class="container pt-2" *ngIf="topRatedfilterd">
       <div class="row mb-2"
-           *ngFor="let top of topRated$; let index = index"
+           *ngFor="let top of topRatedfilterd; let index = index"
            [ngClass]="{'odd': 0 === index % 2, 'even': 1 === index % 2}">
         <div class="col-lg-3 mb-1 mt-1">
           <img src="{{this.topRatedImageBasePath}}{{top.poster_path}}" alt="Image of the movie">
