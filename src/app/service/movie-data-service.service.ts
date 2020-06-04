@@ -11,37 +11,35 @@ import {IPopularPage} from '../model/IPopularPage';
 
 export class MovieDataServiceService {
   serviceHelper: ServiceHelper = new ServiceHelper();
-  language: string = '&language=en-US';
+  language = '&language=en-US';
+  page = '&page=1';
 
   constructor(private httpClient: HttpClient) {
   }
 
   getGenre() {
-    let firstPath: string = 'genre/movie/list?';
-    let genre: string = this.serviceHelper.createUrlPath(firstPath, '', this.language);
+    const firstPath = 'genre/movie/list?';
+    const genre: string = this.serviceHelper.createUrlPath(firstPath, '', this.language);
     return this.httpClient.get<IGenre>(genre);
   }
 
   getTopRatedPage() {
-    let firstPath: string = 'movie/top_rated?';
-    let page: string = '&page=1';
-    let topRated: string = this.serviceHelper.createUrlPath(firstPath, '', this.language, page);
+    const firstPath = 'movie/top_rated?';
+    const topRated: string = this.serviceHelper.createUrlPath(firstPath, '', this.language, this.page);
     return this.httpClient.get<ITopRatedPage>(topRated);
   }
 
   getPopularPage() {
-    let firstPath: string = 'movie/popular?';
-    let page: string = '&page=1';
-    let afterApiKeyPath: string = '&sort_by=popularity.desc&include_adult=true&include_video=false';
-    let popular: string = this.serviceHelper.createUrlPath(firstPath, '', this.language, page, afterApiKeyPath);
+    const firstPath = 'movie/popular?';
+    const afterApiKeyPath = '&sort_by=popularity.desc&include_adult=true&include_video=false';
+    const popular: string = this.serviceHelper.createUrlPath(firstPath, '', this.language, this.page, afterApiKeyPath);
     return this.httpClient.get<IPopularPage>(popular);
   }
 
   getLatest() {
-    let firstPath: string = 'movie/upcoming?';
-    let page: string = '&page=1';
-    let afterApiKeyPath: string = '&sort_by=popularity.desc&include_adult=true&include_video=false';
-    let popular: string = this.serviceHelper.createUrlPath(firstPath, '', this.language, page, afterApiKeyPath);
+    const firstPath = 'movie/upcoming?';
+    const afterApiKeyPath = '&sort_by=popularity.desc&include_adult=true&include_video=false';
+    const popular: string = this.serviceHelper.createUrlPath(firstPath, '', this.language, this.page, afterApiKeyPath);
     return this.httpClient.get<IPopularPage>(popular);
   }
 }
