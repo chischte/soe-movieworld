@@ -11,7 +11,6 @@ import {MovieSearchService} from '../../service/movie-search.service';
 
 export class SearchBarComponent implements OnInit {
   searchInputField: string;
-  @Input() movieSearchedInput: Array<IMovie>;
   @Output() searchedMovieListOutput = new EventEmitter<IMovie[]>();
 
   constructor(private movieSearchService: MovieSearchService) { }

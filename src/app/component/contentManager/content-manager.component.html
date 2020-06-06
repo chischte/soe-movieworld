@@ -1,4 +1,4 @@
-<app-searchbar (searchedMovieListOutput)="searchMethodParent($event)" [movieSearchedInput]="childSearchInput"></app-searchbar>
+<app-searchbar (searchedMovieListOutput)="searchMethodParent($event)"></app-searchbar>
 
 <div class="button-center">
   <button class="btn btn-dark" type="button" (click)="onDisplayModeChange(1)"
@@ -12,7 +12,7 @@
   <div class="button-center">
     <div *ngFor="let genre of allGenres;">
         <span>
-          <button type="submit" (click)="getSelectedGenre(genre.id)" class="btn btn-outline-light align-bottom">{{genre.name}} {{genre.id}}</button>
+          <button type="submit" (click)="getSelectedGenre(genre.id)" class="btn btn-outline-light align-bottom">{{genre.name}}</button>
         </span>
     </div>
   </div>

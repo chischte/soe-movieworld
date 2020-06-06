@@ -18,8 +18,6 @@ export class MovieFavoriteService {
   }
 
   public insertFavorite(favorite: IFavorite): Observable<any> {
-    console.log("favorite");
-    console.log(favorite);
     return this.http.post(this.baseUrl + '/favorite', favorite);
   }
 

@@ -29,14 +29,18 @@ export class ContentManagerComponent implements OnInit {
 
 
   ngOnInit() {
+    this.getAllGenresFromTMDB();
+
     return this.movieDataServiceService.getTopRatedPage()
       .subscribe((data: IMoviePage) => {
         this.movieFiltered = data.results;
+        this.movie = data.results;
       });
   }
 
   searchMethodParent($event){
     this.movieFiltered = $event;
+    this.movie = $event;
   }
 
   addFavorite(index) {
@@ -58,12 +62,9 @@ export class ContentManagerComponent implements OnInit {
   }
 
   getAllGenresFromTMDB() {
-    console.log("b");
     this.movieDataServiceService.getGenre()
       .subscribe((data: IGenre) => {
         this.allGenres = data.genres;
-      }, err => {
-        console.log(err);
       });
   }
 
@@ -71,7 +72,6 @@ export class ContentManagerComponent implements OnInit {
     this.movieTemp = [];
     this.movie.forEach(function(movie) {
       if (movie.genre_ids.includes(id)) {
-        console.log( movie.title );
         this.movieTemp.push(movie);
       }
     }.bind(this));

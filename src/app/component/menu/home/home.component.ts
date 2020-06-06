@@ -11,7 +11,6 @@ import {IPopularPage} from '../../../model/IPopularPage';
 })
 export class HomeComponent implements OnInit {
   topRated$: IPopular[] = [];
-  genre: number;
   topRatedImageBasePath: string = 'http://image.tmdb.org/t/p/w200/';
   displayMode: number = 1;
 
