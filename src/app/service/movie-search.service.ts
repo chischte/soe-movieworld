@@ -2,7 +2,7 @@ import {Injectable, Input} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {BehaviorSubject} from 'rxjs';
 import {ServiceHelper} from '../serviceHelper/service-helper';
-import {IMoviePage} from "../model/IMoviePage";
+import {IMoviePage} from '../model/IMoviePage';
 
 @Injectable({
   providedIn: 'root'

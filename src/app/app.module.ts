@@ -15,10 +15,11 @@ import {FavoriteListComponent} from './component/menu/favorite/favorite-list/fav
 import {FavoritePageComponent} from './component/menu/favorite/favorite-page/favorite-page.component';
 import {MovieDataServiceService} from './service/movie-data-service.service';
 
-import { SearchBarComponent } from './component/searchbar/search-bar.component';
+import { SearchBarComponent } from './component/navigation/searchbar/search-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContentManagerComponent } from './component/contentManager/content-manager.component';
 import { BestComponent } from './component/menu/best/best.component';
+import { SearchComponent } from './component/menu/search/search.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { BestComponent } from './component/menu/best/best.component';
     SearchBarComponent,
     ContentManagerComponent,
     BestComponent,
+    SearchComponent,
   ],
   imports: [
     HttpClientModule,
