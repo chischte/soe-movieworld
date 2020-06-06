@@ -11,7 +11,6 @@ import {IGenre} from '../../model/IGenre';
 })
 
 export class ContentManagerComponent implements OnInit, OnChanges {
-  movie: IMovie[] = [];
   movieFiltered: IMovie[] = [];
   movieTemp: IMovie[] = [];
   displayMode = 1;
@@ -57,7 +56,7 @@ export class ContentManagerComponent implements OnInit, OnChanges {
 
   getSelectedGenre(id: number) {
     this.movieTemp = [];
-    this.movie.forEach(function(movie) {
+    this.Movies.forEach(function(movie) {
       if (movie.genre_ids.includes(id)) {
         this.movieTemp.push(movie);
       }
