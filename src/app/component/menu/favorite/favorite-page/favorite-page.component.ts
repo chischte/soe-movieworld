@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {IFavorite} from "../../../../model/IFavorite";
-import {MovieFavoriteService} from "../../../../service/movie-favorite.service";
+import {IFavorite} from '../../../../model/IFavorite';
+import {MovieFavoriteService} from '../../../../service/movie-favorite.service';
 
 @Component({
   selector: 'app-favorite-page',
@@ -8,7 +8,7 @@ import {MovieFavoriteService} from "../../../../service/movie-favorite.service";
   styleUrls: ['./favorite-page.component.css']
 })
 export class FavoritePageComponent implements OnInit {
-  favoriteListArray : Array<IFavorite> = [];
+  favoriteListArray: Array<IFavorite> = [];
 
   constructor(private movieFavoriteService: MovieFavoriteService) { }
 

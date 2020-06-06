@@ -30,15 +30,9 @@ export class ContentManagerComponent implements OnInit {
 
   ngOnInit() {
     this.getAllGenresFromTMDB();
-
-    return this.movieDataServiceService.getTopRatedPage()
-      .subscribe((data: IMoviePage) => {
-        this.movieFiltered = data.results;
-        this.movie = data.results;
-      });
   }
 
-  searchMethodParent($event){
+  searchMethodParent($event) {
     this.movieFiltered = $event;
     this.movie = $event;
   }
@@ -79,6 +73,6 @@ export class ContentManagerComponent implements OnInit {
   }
 
   toggleGenre(genre: IGenre) {
-    console.log('toggeld ');
+    console.log('toggled ');
   }
 }

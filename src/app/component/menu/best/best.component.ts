@@ -1,31 +1,34 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {MovieDataServiceService} from '../../../service/movie-data-service.service';
 import {MovieFavoriteService} from '../../../service/movie-favorite.service';
 import {IPopular} from '../../../model/IPopular';
 import {IPopularPage} from '../../../model/IPopularPage';
+import {IMoviePage} from '../../../model/IMoviePage';
+import {IMovie} from "../../../model/IMovie";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-best',
+  templateUrl: './best.component.html',
+  styleUrls: ['./best.component.css']
 })
 
-export class HomeComponent implements OnInit {
-  topRated$: IPopular[] = [];
-  topRatedImageBasePath: string = 'http://image.tmdb.org/t/p/w200/';
-  displayMode: number = 1;
+export class BestComponent implements OnInit {
+
+  topRated$: IMovie[] = [];
+  topRatedImageBasePath = 'http://image.tmdb.org/t/p/w200/';
+  displayMode = 1;
 
   constructor(private movieDataServiceService: MovieDataServiceService, private movieFavoriteService : MovieFavoriteService) {
   }
 
   ngOnInit() {
-    console.log('Test ob das Home funktioniert');
-    return this.movieDataServiceService.getLatest()
-      .subscribe((data: IPopularPage) => {
+    return this.movieDataServiceService.getTopRatedPage()
+      .subscribe((data: IMoviePage) => {
         this.topRated$ = data.results;
       });
 
   }
+
   addFavorite(index) {
     if (index >= 0) {
       let resultOfIndex = this.topRated$[index];

@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule,} from '@angular/core';
+import {NgModule, } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 
 import {HeaderComponent} from './component/navigation/header/header.component';
@@ -9,6 +9,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FooterComponent} from './component/navigation/footer/footer.component';
 import {PopularComponent} from './component/menu/popular/popular.component';
 import {HomeComponent} from './component/menu/home/home.component';
+
 import {FavoriteInputComponent} from './component/menu/favorite/favorite-input/favorite-input.component';
 import {FavoriteListComponent} from './component/menu/favorite/favorite-list/favorite-list.component';
 import {FavoritePageComponent} from './component/menu/favorite/favorite-page/favorite-page.component';
@@ -17,6 +18,7 @@ import {MovieDataServiceService} from './service/movie-data-service.service';
 import { SearchBarComponent } from './component/searchbar/search-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContentManagerComponent } from './component/contentManager/content-manager.component';
+import { BestComponent } from './component/menu/best/best.component';
 
 
 @NgModule({
@@ -31,6 +33,7 @@ import { ContentManagerComponent } from './component/contentManager/content-mana
     FavoritePageComponent,
     SearchBarComponent,
     ContentManagerComponent,
+    BestComponent,
   ],
   imports: [
     HttpClientModule,
