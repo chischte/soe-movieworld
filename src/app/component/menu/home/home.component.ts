@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MovieDataServiceService} from '../../../service/movie-data-service.service';
-import {MovieFavoriteService} from '../../../service/movie-favorite.service';
-import {IPopular} from '../../../model/IPopular';
-import {IPopularPage} from '../../../model/IPopularPage';
+import {IMovie} from '../../../model/IMovie';
+import {IMoviePage} from '../../../model/IMoviePage';
 
 @Component({
   selector: 'app-home',
@@ -11,33 +10,15 @@ import {IPopularPage} from '../../../model/IPopularPage';
 })
 
 export class HomeComponent implements OnInit {
-  topRated$: IPopular[] = [];
-  topRatedImageBasePath: string = 'http://image.tmdb.org/t/p/w200/';
-  displayMode: number = 1;
 
-  constructor(private movieDataServiceService: MovieDataServiceService, private movieFavoriteService : MovieFavoriteService) {
-  }
+  homeMovieListOutput: Array<IMovie>;
+
+  constructor(private movieDataServiceService: MovieDataServiceService) { }
 
   ngOnInit() {
-    console.log('Test ob das Home funktioniert');
     return this.movieDataServiceService.getLatest()
-      .subscribe((data: IPopularPage) => {
-        this.topRated$ = data.results;
+      .subscribe((data: IMoviePage) => {
+        this.homeMovieListOutput = data.results;
       });
-
-  }
-  addFavorite(index) {
-    if (index >= 0) {
-      let resultOfIndex = this.topRated$[index];
-
-      const favorite = {movieName: resultOfIndex.title, additionalNotes: resultOfIndex.release_date};
-      console.log(favorite);
-      this.movieFavoriteService.insertFavorite(favorite)
-        .subscribe((response: any) => {});
-
-      alert('"' + resultOfIndex.title + '"' + ' wurde in die Favoriten aufgenommen');
-    } else {
-      alert('Der Film konnte nicht in die Favoriten gespeichert werden.');
-    }
   }
 }

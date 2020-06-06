@@ -12,5 +12,5 @@ export interface IMovie {
   title: string,
   vote_average: number,
   overview: string,
-  release_date: string
+  release_date: string,
 }

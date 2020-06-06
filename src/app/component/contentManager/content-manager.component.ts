@@ -1,9 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {IMovie} from "../../model/IMovie";
-import {MovieDataServiceService} from "../../service/movie-data-service.service";
-import {MovieFavoriteService} from "../../service/movie-favorite.service";
-import {IGenre} from "../../model/IGenre";
-import {IMoviePage} from "../../model/IMoviePage";
+import { Component, Input, OnChanges, OnInit} from '@angular/core';
+import {IMovie} from '../../model/IMovie';
+import {MovieDataServiceService} from '../../service/movie-data-service.service';
+import {MovieFavoriteService} from '../../service/movie-favorite.service';
+import {IGenre} from '../../model/IGenre';
 
 @Component({
   selector: 'app-content-manager',
@@ -11,7 +10,7 @@ import {IMoviePage} from "../../model/IMoviePage";
   styleUrls: ['./content-manager.component.css']
 })
 
-export class ContentManagerComponent implements OnInit {
+export class ContentManagerComponent implements OnInit, OnChanges {
   movie: IMovie[] = [];
   movieFiltered: IMovie[] = [];
   movieTemp: IMovie[] = [];
@@ -19,22 +18,16 @@ export class ContentManagerComponent implements OnInit {
   allGenres: [{ id: number; name: string }];
   topRatedImageBasePath = 'http://image.tmdb.org/t/p/w200/';
 
+  @Input() Movies: Array<IMovie>;
+
   constructor(private movieDataServiceService: MovieDataServiceService, private movieFavoriteService: MovieFavoriteService) {}
-
-  @Input() searchInputField : Array<IMovie>;
-  @Input() searchOutput : Array<IMovie>;
-  @Input() movieSearchedInput: Array<IMovie>;
-
-  childSearchInput: IMovie[] = [];
-
 
   ngOnInit() {
     this.getAllGenresFromTMDB();
   }
 
-  searchMethodParent($event) {
-    this.movieFiltered = $event;
-    this.movie = $event;
+  ngOnChanges() {
+    this.movieFiltered = this.Movies;
   }
 
   addFavorite(index) {

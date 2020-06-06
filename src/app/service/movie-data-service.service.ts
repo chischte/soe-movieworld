@@ -3,7 +3,6 @@ import {HttpClient} from '@angular/common/http';
 import {IGenre} from '../model/IGenre';
 import {IMoviePage} from '../model/IMoviePage';
 import {ServiceHelper} from '../serviceHelper/service-helper';
-import {IPopularPage} from '../model/IPopularPage';
 
 @Injectable({
   providedIn: 'root'
@@ -33,13 +32,13 @@ export class MovieDataServiceService {
     const firstPath = 'movie/popular?';
     const afterApiKeyPath = '&sort_by=popularity.desc&include_adult=true&include_video=false';
     const popular: string = this.serviceHelper.createUrlPath(firstPath, '', this.language, this.page, afterApiKeyPath);
-    return this.httpClient.get<IPopularPage>(popular);
+    return this.httpClient.get<IMoviePage>(popular);
   }
 
   getLatest() {
     const firstPath = 'movie/upcoming?';
     const afterApiKeyPath = '&sort_by=popularity.desc&include_adult=true&include_video=false';
     const popular: string = this.serviceHelper.createUrlPath(firstPath, '', this.language, this.page, afterApiKeyPath);
-    return this.httpClient.get<IPopularPage>(popular);
+    return this.httpClient.get<IMoviePage>(popular);
   }
 }

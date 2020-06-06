@@ -22,3 +22,13 @@
   display: flex;
   justify-content: center;
 }
+
+.picture-middle {
+  display: block;
+  margin: auto auto;
+  min-height: 320px;
+}
+
+.minheight {
+  min-height: 56px;
+}
