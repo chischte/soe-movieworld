@@ -1,9 +1,8 @@
 <app-header></app-header>
 <div class="background-image">
   <div *ngIf="isSearchLandingPageViewable == false; else elseBlock">
-    <app-search-landing-page></app-search-landing-page>
+<!--    <app-search-landing-page></app-search-landing-page>-->
   </div>
-
   <ng-template #elseBlock><router-outlet></router-outlet></ng-template>
 </div>
 <app-footer></app-footer>

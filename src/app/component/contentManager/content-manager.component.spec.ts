@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchLandingPageComponent } from './search-landing-page.component';
+import { ContentManagerComponent } from './content-manager.component';
 
-describe('SearchLandingPageComponent', () => {
-  let component: SearchLandingPageComponent;
-  let fixture: ComponentFixture<SearchLandingPageComponent>;
+describe('ContentManagerComponent', () => {
+  let component: ContentManagerComponent;
+  let fixture: ComponentFixture<ContentManagerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchLandingPageComponent ]
+      declarations: [ ContentManagerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SearchLandingPageComponent);
+    fixture = TestBed.createComponent(ContentManagerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

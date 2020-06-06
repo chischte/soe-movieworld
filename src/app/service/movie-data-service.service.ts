@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {IGenre} from '../model/IGenre';
-import {ITopRatedPage} from '../model/ITopRatedPage';
+import {IMoviePage} from '../model/IMoviePage';
 import {ServiceHelper} from '../serviceHelper/service-helper';
 import {IPopularPage} from '../model/IPopularPage';
 
@@ -26,7 +26,7 @@ export class MovieDataServiceService {
   getTopRatedPage() {
     const firstPath = 'movie/top_rated?';
     const topRated: string = this.serviceHelper.createUrlPath(firstPath, '', this.language, this.page);
-    return this.httpClient.get<ITopRatedPage>(topRated);
+    return this.httpClient.get<IMoviePage>(topRated);
   }
 
   getPopularPage() {

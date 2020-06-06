@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {IMoviePage} from '../../model/IMoviePage';
 import {IMovie} from '../../model/IMovie';
 import {MovieSearchService} from '../../service/movie-search.service';
-import {ITopRatedPage} from "../../model/ITopRatedPage";
 
 @Component({
   selector: 'app-searchbar',
@@ -11,17 +10,19 @@ import {ITopRatedPage} from "../../model/ITopRatedPage";
 })
 
 export class SearchBarComponent implements OnInit {
-  searchMovieResults: IMovie[] = [];
   searchInputField: string;
+  @Input() movieSearchedInput: Array<IMovie>;
+  @Output() searchedMovieListOutput = new EventEmitter<IMovie[]>();
 
   constructor(private movieSearchService: MovieSearchService) { }
 
-  ngOnInit(): void { }
+  ngOnInit() {
+  }
 
   getTheSearchedMovie() {
-    this.movieSearchService.getSearchedMovie(this.searchInputField)
+    return this.movieSearchService.getSearchedMovie(this.searchInputField)
       .subscribe((data: IMoviePage) => {
-        this.searchMovieResults = data.results;
+        this.searchedMovieListOutput.emit(data.results);
       });
   }
 }

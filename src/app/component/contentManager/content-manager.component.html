@@ -1,3 +1,5 @@
+<app-searchbar (searchedMovieListOutput)="searchMethodParent($event)" [movieSearchedInput]="childSearchInput"></app-searchbar>
+
 <div class="button-center">
   <button class="btn btn-dark" type="button" (click)="onDisplayModeChange(1)"
           [ngClass]="{'btn-primary active': displayMode === 1}">
@@ -7,20 +9,12 @@
           [ngClass]="{'btn-primary active': displayMode === 2}">
     <i class="fa fa-list fa-3x"></i>
   </button>
-<!--  <div ngbDropdown class="d-inline-block" *ngIf="allGenres">-->
-<!--    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Genre Auswahl</button>-->
-<!--    <div ngbDropdownItem aria-labelledby="dropdownBasic1">-->
-<!--      <button ngbDropdownItem *ngFor="let genre of allGenres" (click)="toggleGenre(genre)">-->
-<!--        {{genre.name}}-->
-<!--      </button>-->
-<!--    </div>-->
-<!--  </div>-->
   <div class="button-center">
-      <div *ngFor="let genre of allGenres;">
+    <div *ngFor="let genre of allGenres;">
         <span>
           <button type="submit" (click)="getSelectedGenre(genre.id)" class="btn btn-outline-light align-bottom">{{genre.name}} {{genre.id}}</button>
         </span>
-      </div>
+    </div>
   </div>
 </div>
 
@@ -28,7 +22,7 @@
   <!-- Grid View -->
   <div class="row col-11" *ngIf="displayMode === 1">
     <div class="m-1 p-1 row-grid"
-         *ngFor="let top of topRatedfilterd let index = index"
+         *ngFor="let top of movieFiltered let index = index"
          [ngClass]="{'odd': 0 === index % 2, 'even': 1 === index % 2}">
       <div>
         <img src="{{this.topRatedImageBasePath}}{{top.poster_path}}" alt="Image of the movie">
@@ -44,9 +38,9 @@
   </div>
   <!-- List View -->
   <div class="row col-12" *ngIf="displayMode === 2">
-    <div class="container pt-2" *ngIf="topRatedfilterd">
+    <div class="container pt-2" *ngIf="movieFiltered">
       <div class="row mb-2"
-           *ngFor="let top of topRatedfilterd; let index = index"
+           *ngFor="let top of movieFiltered; let index = index"
            [ngClass]="{'odd': 0 === index % 2, 'even': 1 === index % 2}">
         <div class="col-lg-3 mb-1 mt-1">
           <img src="{{this.topRatedImageBasePath}}{{top.poster_path}}" alt="Image of the movie">

@@ -1,6 +1,20 @@
-<input type="text"
-       class="form-control my-0 py-1 amber-border"
-       placeholder="Nach einem Filmtitel suchen"
-       aria-label="Search"
-       (keyup.enter)="getTheSearchedMovie()"
-       [(ngModel)]="searchInputField" />
+<!--<div>-->
+<!--  <app-content-manager [movieSearchedInput]="parentSearchInput"></app-content-manager>-->
+<!--</div>-->
+
+<table>
+  <tr>
+    <td>
+      <input type="text"
+             class="form-control my-0 py-1 amber-border min-width"
+             placeholder="Nach einem Filmtitel suchen"
+             aria-label="Search"
+             [(ngModel)]="searchInputField" />
+    </td>
+    <td>
+      <button class="btn btn-primary" (keydown.enter)="getTheSearchedMovie()" (click)="getTheSearchedMovie()"
+              routerLink="/contentmanager">Suchen
+      </button>
+    </td>
+  </tr>
+</table>
