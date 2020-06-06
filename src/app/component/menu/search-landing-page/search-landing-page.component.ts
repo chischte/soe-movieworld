@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ISearchMovie} from "../../../model/ISearchMovie";
+import {IMovie} from "../../../model/IMovie";
 
 @Component({
   selector: 'app-search-landing-page',
@@ -8,12 +8,12 @@ import {ISearchMovie} from "../../../model/ISearchMovie";
 })
 
 export class SearchLandingPageComponent implements OnInit {
-  searchMoviePage$: ISearchMovie[] = [];
-  imageBasePath: string = 'http://image.tmdb.org/t/p/w200/';
-
-  @Input() searchInput: string;
-
-  constructor() { }
-
+  // searchMoviePage$: ISearchMovie[] = [];
+  // imageBasePath: string = 'http://image.tmdb.org/t/p/w200/';
+  //
+  // @Input() searchInput: string;
+  //
+  // constructor() { }
+  //
   ngOnInit() { }
 }

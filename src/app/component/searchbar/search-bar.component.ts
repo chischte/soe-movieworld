@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ISearchMoviePage} from '../../model/ISearchMoviePage';
+import {IMoviePage} from '../../model/IMoviePage';
+import {IMovie} from '../../model/IMovie';
 import {MovieSearchService} from '../../service/movie-search.service';
-import {ISearchMovie} from '../../model/ISearchMovie';
+import {ITopRatedPage} from "../../model/ITopRatedPage";
 
 @Component({
   selector: 'app-searchbar',
@@ -10,28 +11,17 @@ import {ISearchMovie} from '../../model/ISearchMovie';
 })
 
 export class SearchBarComponent implements OnInit {
-  searchMovieResults: ISearchMovie[] = [];
+  searchMovieResults: IMovie[] = [];
   searchInputField: string;
 
   constructor(private movieSearchService: MovieSearchService) { }
 
   ngOnInit(): void { }
 
-  getSearchedMovie($event: any) {
-
-    // console.log("SearchBarComponent " + this.searchInputField + " $event--> " + $event);
+  getTheSearchedMovie() {
     this.movieSearchService.getSearchedMovie(this.searchInputField)
-      .subscribe((data: ISearchMoviePage) => {
+      .subscribe((data: IMoviePage) => {
         this.searchMovieResults = data.results;
-        console.log(data.results);
       });
-
-    console.log(this.searchInputField);
-      // ,
-      //   error =>
-      //   {
-      //     console.error("Backend returned code ${{error}} " + error)
-      //   });
-
   }
 }

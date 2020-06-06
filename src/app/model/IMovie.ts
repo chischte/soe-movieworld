@@ -1,4 +1,4 @@
-export interface ISearchMovie {
+export interface IMovie {
   popularity: number,
   vote_count: number,
   video: false,
