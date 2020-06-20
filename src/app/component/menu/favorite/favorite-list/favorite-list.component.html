@@ -16,7 +16,7 @@
         </button>
       </td>
       <td width="30%">{{item.movieName}}</td>
-      <td width="65%">{{item.additionalNotes}}</td>
+      <td width="65%" [innerHTML]="item.additionalNotes"></td>
     </tr>
     </tbody>
   </table>

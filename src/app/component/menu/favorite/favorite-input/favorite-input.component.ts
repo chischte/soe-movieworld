@@ -26,7 +26,6 @@ export class FavoriteInputComponent implements OnInit {
           this.additionalNotes = '';
           this.updateFavoriteList.emit();
         });
-      alert("Gugus");
     } else {
       alert('Damit ein Film gespeichert werden kann, musst du diesem einen Namen geben');
     }

@@ -1,4 +1,4 @@
-@import url("../node_modules/bootstrap/dist/css/bootstrap.css");
+@import "~bootstrap/dist/css/bootstrap.css";
 
 body{
   background-color: #8B9196 !important;

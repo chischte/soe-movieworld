@@ -3,15 +3,15 @@
   color: #DDDDDD;
 }
 
-.even{
+.even {
   background-color: RGBA(71, 71.8, 72.9, 0.3);
   color: #DDDDDD;
 }
 
-.row-grid{
-  margin:15px;
-  min-width: 250px;
-  max-width: 250px;
+.row-grid {
+  margin: 15px;
+  min-width: 210px;
+  max-width: 210px;
 }
 
 .button-center {
@@ -29,6 +29,98 @@
   min-height: 320px;
 }
 
-.minheight {
+.content-manager {
+  border: 1px solid #444444;
+  height: auto;
+}
+
+.movie-information {
   min-height: 56px;
+  color: #CCCCCC;
+}
+
+.genre-button-container {
+  margin: 5px 0 5px 0px;
+}
+
+.genre-button {
+  color: #CCCCCC;
+  border-color: #CCCCCC;
+}
+
+.align-button-bottom-left {
+  left: 0;
+  bottom: 0;
+}
+
+.align-button-bottom-right {
+  position: relative;
+  left: 54px;
+  bottom: 0;
+}
+
+.movie-image-frame {
+  min-height: 300px;
+  max-height: 300px;
+  max-width: 210px;
+}
+
+.movie-image-frame td {
+  vertical-align: center;
+}
+
+.modal-dialog
+{
+  opacity: 0.95;
+}
+
+.modal-content {
+  background-color: #343a40;
+  border: 1px solid #444444;
+}
+
+.modal-header {
+  margin: 0 auto;
+  color: #cccccc;
+  font-size: 30px;
+  background-color: #343a40;
+}
+
+.modal-body {
+  margin: 0 auto;
+  color: #cccccc;
+  background-color: #343a40;
+}
+
+.modal-footer {
+  margin: 0 auto;
+  color: #cccccc;
+  background-color: #343a40;
+}
+
+.close {
+  font-size: 45px;
+  color: #CCCCCC;
+  text-shadow: none;
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  z-index: 10;
+}
+
+.modal-close-button {
+  color: #cccccc;
+}
+
+.modal-table-image {
+  position: relative;
+  left: 63%;
+}
+
+.modal-teaser-text {
+  text-align: center;
+}
+
+td {
+  padding-right: 5px;
 }

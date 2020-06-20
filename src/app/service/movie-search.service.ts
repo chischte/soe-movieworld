@@ -24,7 +24,7 @@ export class MovieSearchService {
   getSearchedMovie(searchInputField: string) {
     const firstPath: string = 'search/movie?';
     // tslint:disable-next-line:max-line-length
-    const searchPath: string = this.serviceHelper.createUrlSearchPath(firstPath, '' , this.language, this.page, this.pageQuery + searchInputField, this.includeAdult );
+    const searchPath: string = this.serviceHelper.createUrlSearchPath(firstPath, '', this.language, this.page, this.pageQuery + searchInputField, this.includeAdult );
     return this.httpClient.get<IMoviePage>(searchPath);
   }
 }

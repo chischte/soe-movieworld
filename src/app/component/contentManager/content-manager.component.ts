@@ -32,12 +32,15 @@ export class ContentManagerComponent implements OnInit, OnChanges {
   addFavorite(index) {
     if (index >= 0) {
       const resultOfIndex = this.movieFiltered[index];
-
-      const favorite = {movieName: resultOfIndex.title, additionalNotes: resultOfIndex.release_date};
+      let stringBuilder = '<table><tr><td>Release date:</td><td>' + resultOfIndex.release_date + '</td></tr>';
+      stringBuilder += '<tr><td>Original title:</td><td>' + resultOfIndex.original_title + '</td></tr>';
+      stringBuilder += '<tr><td>Original language:</td><td>' + resultOfIndex.original_language + '</td></tr>';
+      stringBuilder += '<td>Teaser text:</td><td>' + resultOfIndex.overview + '</td></tr></table>';
+      const favorite = {movieName: resultOfIndex.title, additionalNotes: stringBuilder};
       this.movieFavoriteService.insertFavorite(favorite)
         .subscribe((response: any) => {});
 
-      alert('"' + resultOfIndex.title + '"' + ' wurde in die Favoriten aufgenommen ');
+      alert('"' + resultOfIndex.title + '"' + ' wurde in die Favoriten aufgenommen.');
     } else {
       alert('Der Film konnte nicht in die Favoriten gespeichert werden.');
     }
@@ -62,9 +65,5 @@ export class ContentManagerComponent implements OnInit, OnChanges {
       }
     }.bind(this));
     this.movieFiltered = this.movieTemp;
-  }
-
-  toggleGenre(genre: IGenre) {
-    console.log('toggled ');
   }
 }
