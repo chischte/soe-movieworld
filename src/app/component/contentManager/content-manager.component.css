@@ -40,7 +40,8 @@
 }
 
 .movie-information {
-  min-height: 56px;
+  height: 370px;
+  /*min-height: 56px;*/
   color: #CCCCCC;
 }
 
