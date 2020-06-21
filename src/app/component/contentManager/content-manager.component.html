@@ -24,8 +24,9 @@
          *ngFor="let top of movieFiltered let index = index"
          [ngClass]="{'odd': 0 === index % 2, 'even': 1 === index % 2}">
       <div>
-        <div class="movie-image-frame">
-          <img src="{{this.topRatedImageBasePath}}{{top.poster_path}}" alt="Image of the movie {{top.title}}"/>
+        <div class="movie-image-frame hover-effect" type="submit" data-toggle="modal"
+             attr.data-target="#modal{{index}}">
+          <img src="{{this.topRatedImageBasePath}}{{top.poster_path}}" class="img-responsive" alt="Image of the movie {{top.title}}"/>
         </div>
         <div class="movie-information">
           <span class="card-title mr-3">{{top.title}}</span>
@@ -87,11 +88,11 @@
   <!-- List View -->
   <div class="row col-12" *ngIf="displayMode === 2">
     <div class="container pt-2" *ngIf="movieFiltered">
-      <div class="row mb-2"
+      <div class="row mb-2 list-view-container"
            *ngFor="let top of movieFiltered; let index = index"
            [ngClass]="{'odd': 0 === index % 2, 'even': 1 === index % 2}">
-        <div class="col-lg-3 mb-1 mt-1">
-          <img src="{{this.topRatedImageBasePath}}{{top.poster_path}}" alt="Image of the movie called '{{top.title}}'">
+        <div class="col-lg-3 mb-1 mt-1 hover-effect">
+          <img src="{{this.topRatedImageBasePath}}{{top.poster_path}}" class="img-responsive" alt="Image of the movie called '{{top.title}}'">
         </div>
         <div class="col-lg-9 mt-2">
           <h4 class="card-title">{{top.title}}</h4>
