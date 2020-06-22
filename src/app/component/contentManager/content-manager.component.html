@@ -26,18 +26,21 @@
       <div>
         <div class="movie-image-frame hover-effect" type="submit" data-toggle="modal"
              attr.data-target="#modal{{index}}">
-          <img src="{{this.topRatedImageBasePath}}{{top.poster_path}}" class="img-responsive" alt="Image of the movie {{top.title}}"/>
+          <img src="{{this.topRatedImageBasePath}}{{top.poster_path}}" class="img-responsive"
+               alt="Image of the movie {{top.title}}"/>
         </div>
         <div class="movie-information">
-          <span class="card-title mr-3">{{top.title}}</span>
+          <span class="card-title mr-3">{{(top.title.length > 42)? (top.title| slice:0:42) + '...' : top.title }}</span>
         </div>
-        <button type="submit" (click)="addFavorite(index);"
-                class="btn btn-outline-light align-button-bottom-left genre-button">Favorite
-        </button>
-        <!-- Button trigger modal -->
-        <button type="submit" class="btn btn-outline-primary align-button-bottom-right" data-toggle="modal"
-                attr.data-target="#modal{{index}}">More
-        </button>
+        <div class="movie-grid-button-layout-bottom">
+          <button type="submit" (click)="addFavorite(index);"
+                  class="btn btn-outline-light align-button-bottom-left genre-button">Favorite
+          </button>
+          <!-- Button trigger modal -->
+          <button type="submit" class="btn btn-outline-primary align-button-bottom-right" data-toggle="modal"
+                  attr.data-target="#modal{{index}}">More
+          </button>
+        </div>
 
         <!-- Modal -->
         <div class="modal fade" id="modal{{index}}" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
@@ -92,7 +95,8 @@
            *ngFor="let top of movieFiltered; let index = index"
            [ngClass]="{'odd': 0 === index % 2, 'even': 1 === index % 2}">
         <div class="col-lg-3 mb-1 mt-1 hover-effect">
-          <img src="{{this.topRatedImageBasePath}}{{top.poster_path}}" class="img-responsive" alt="Image of the movie called '{{top.title}}'">
+          <img src="{{this.topRatedImageBasePath}}{{top.poster_path}}" class="img-responsive"
+               alt="Image of the movie called '{{top.title}}'">
         </div>
         <div class="col-lg-9 mt-2">
           <h4 class="card-title">{{top.title}}</h4>

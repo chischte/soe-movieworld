@@ -40,8 +40,8 @@
 }
 
 .movie-information {
-  height: 370px;
-  /*min-height: 56px;*/
+  height: 350px;
+  min-height: 56px;
   color: #CCCCCC;
 }
 
@@ -63,6 +63,13 @@
   position: relative;
   left: 54px;
   bottom: 0;
+}
+
+.movie-grid-button-layout-bottom {
+  position:relative;
+  height:40px;
+  bottom:0;
+  width:100%;
 }
 
 .movie-image-frame {

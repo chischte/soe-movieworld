@@ -22,6 +22,7 @@ export class ContentManagerComponent implements OnInit, OnChanges {
   constructor(private movieDataServiceService: MovieDataServiceService, private movieFavoriteService: MovieFavoriteService) {}
 
   ngOnInit() {
+    console.log('%cMade with %c\u2764 %cin Switzerland.', 'font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: black; font-size: 14px;', 'font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: red; font-size: 14px;', 'font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: black; font-size: 14px;');
     this.getAllGenresFromTMDB();
   }
 
