@@ -5,7 +5,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {HeaderComponent} from './component/navigation/header/header.component';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './component/app/app.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FooterComponent} from './component/navigation/footer/footer.component';
 import {PopularComponent} from './component/menu/popular/popular.component';
 import {HomeComponent} from './component/menu/home/home.component';
@@ -20,6 +19,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContentManagerComponent } from './component/contentManager/content-manager.component';
 import { BestComponent } from './component/menu/best/best.component';
 import { SearchComponent } from './component/menu/search/search.component';
+import { LoginComponent } from './component/auth/login/login.component';
+import { SignupComponent } from './component/auth/signup/signup.component';
+
+// dies wird verwendet für den Style
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {MatCardModule} from "@angular/material/card";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 
 @NgModule({
@@ -36,6 +43,8 @@ import { SearchComponent } from './component/menu/search/search.component';
     ContentManagerComponent,
     BestComponent,
     SearchComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     HttpClientModule,
@@ -44,6 +53,9 @@ import { SearchComponent } from './component/menu/search/search.component';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatCardModule,
+    MatProgressSpinnerModule,
+    MatFormFieldModule,
   ],
   providers: [MovieDataServiceService],
   bootstrap: [AppComponent]

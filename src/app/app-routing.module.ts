@@ -5,6 +5,8 @@ import {PopularComponent} from './component/menu/popular/popular.component';
 import {BestComponent} from './component/menu/best/best.component';
 import {FavoritePageComponent} from './component/menu/favorite/favorite-page/favorite-page.component';
 import {SearchComponent} from './component/menu/search/search.component';
+import {LoginComponent} from './component/auth/login/login.component';
+import {SignupComponent} from './component/auth/signup/signup.component';
 
 
 const routes: Routes = [
@@ -14,6 +16,8 @@ const routes: Routes = [
   { path: 'favorite', component: FavoritePageComponent },
   { path: 'best', component: BestComponent },
   { path: 'search/:blub', component: SearchComponent }, // blub because text is not allowed
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
 
 
 
