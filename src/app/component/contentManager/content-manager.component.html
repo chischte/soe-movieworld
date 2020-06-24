@@ -26,11 +26,17 @@
       <div>
         <div class="movie-image-frame hover-effect" type="submit" data-toggle="modal"
              attr.data-target="#modal{{index}}">
-          <img src="{{this.topRatedImageBasePath}}{{top.poster_path}}" class="img-responsive"
-               alt="Image of the movie {{top.title}}"/>
+          <div *ngIf="(top.poster_path + '').length > 5; else elseBlock ">
+            <img src="{{this.topRatedImageBasePath}}{{top.poster_path}}" class="img-responsive"
+                 alt="Image of the movie {{top.title}}"/>
+          </div>
+            <ng-template #elseBlock>
+              <div class="movie-image-frame-default-image"></div>
+            </ng-template>
         </div>
         <div class="movie-information">
-          <span class="card-title mr-3">{{(top.title.length > 42)? (top.title| slice:0:42) + '...' : top.title }}</span>
+          <span
+            class="card-title mr-3">{{(top.title.length > 42) ? (top.title| slice:0:42) + '...' : top.title }}</span>
         </div>
         <div class="movie-grid-button-layout-bottom">
           <button type="submit" (click)="addFavorite(index);"

@@ -15,7 +15,7 @@ export class ContentManagerComponent implements OnInit, OnChanges {
   movieTemp: IMovie[] = [];
   displayMode = 1;
   allGenres: [{ id: number; name: string }];
-  topRatedImageBasePath = 'http://image.tmdb.org/t/p/w200/';
+  topRatedImageBasePath: string = 'http://image.tmdb.org/t/p/w200/';
 
   @Input() Movies: Array<IMovie>;
 
