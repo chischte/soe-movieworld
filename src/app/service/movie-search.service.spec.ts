@@ -1,16 +1,15 @@
-import { TestBed } from '@angular/core/testing';
-
-import { MovieSearchService } from './movie-search.service';
+import {MovieSearchService} from './movie-search.service';
 
 describe('MovieSearchService', () => {
-  let service: MovieSearchService;
+  let movieSearchService: MovieSearchService;
+  let httpClientSpy: { get: jasmine.Spy };
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(MovieSearchService);
+    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    movieSearchService = new MovieSearchService(<any>httpClientSpy)
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(movieSearchService).toBeTruthy();
   });
 });

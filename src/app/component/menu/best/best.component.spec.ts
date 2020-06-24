@@ -1,25 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { BestComponent } from './best.component';
+import {BestComponent} from './best.component';
+import {MovieDataServiceService} from "../../../service/movie-data-service.service";
 
 describe('BestComponent', () => {
-  let component: BestComponent;
-  let fixture: ComponentFixture<BestComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ BestComponent ]
-    })
-    .compileComponents();
-  }));
+  let movieDataServiceService: MovieDataServiceService;
+  let httpClientSpy: { get: jasmine.Spy };
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BestComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    movieDataServiceService = new MovieDataServiceService(<any> httpClientSpy);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should be created', () => {
+    expect(movieDataServiceService).toBeTruthy();
   });
 });

@@ -1,25 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ContentManagerComponent } from './content-manager.component';
+import {MovieDataServiceService} from "../../service/movie-data-service.service";
 
 describe('ContentManagerComponent', () => {
-  let component: ContentManagerComponent;
-  let fixture: ComponentFixture<ContentManagerComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ContentManagerComponent ]
-    })
-    .compileComponents();
-  }));
+  let movieDataServiceService: MovieDataServiceService;
+  let httpClientSpy: { get: jasmine.Spy };
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ContentManagerComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    movieDataServiceService = new MovieDataServiceService(<any>httpClientSpy);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should be created', () => {
+    expect(movieDataServiceService).toBeTruthy();
   });
 });

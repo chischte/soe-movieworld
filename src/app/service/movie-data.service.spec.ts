@@ -1,13 +1,12 @@
-import { TestBed } from '@angular/core/testing';
-
 import { MovieDataServiceService } from './movie-data-service.service';
 
 describe('MovieDataServiceService', () => {
   let service: MovieDataServiceService;
+  let httpClientSpy: { get: jasmine.Spy };
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(MovieDataServiceService);
+    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    service = new MovieDataServiceService(<any> httpClientSpy)
   });
 
   it('should be created', () => {

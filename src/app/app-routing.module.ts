@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'popular', component: PopularComponent },
   { path: 'favorite', component: FavoritePageComponent },
   { path: 'best', component: BestComponent },
-  { path: 'search/:blub', component: SearchComponent }, // blub because text is not allowed
+  { path: 'search/:searchparam', component: SearchComponent }, // searchparam because text is not allowed
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
 

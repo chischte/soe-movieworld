@@ -1,13 +1,12 @@
-import { TestBed } from '@angular/core/testing';
-
 import { MovieFavoriteService } from './movie-favorite.service';
 
 describe('MovieFavoriteService', () => {
   let service: MovieFavoriteService;
+  let httpClientSpy: { get: jasmine.Spy };
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(MovieFavoriteService);
+    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    service = new MovieFavoriteService(<any> httpClientSpy)
   });
 
   it('should be created', () => {

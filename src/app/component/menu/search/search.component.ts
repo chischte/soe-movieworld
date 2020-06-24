@@ -19,9 +19,7 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.UrlParameter = this.Activatedroute.snapshot.paramMap.get('blub');
-    console.log("Url parm");
-    console.log(this.UrlParameter);
+    this.UrlParameter = this.Activatedroute.snapshot.paramMap.get('searchparam');
 
     this.movieSearchService.getSearchedMovie(this.UrlParameter)
       .subscribe((data: IMoviePage) => {

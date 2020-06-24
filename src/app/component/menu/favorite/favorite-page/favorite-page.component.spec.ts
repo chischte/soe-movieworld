@@ -1,25 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FavoritePageComponent } from './favorite-page.component';
+import {MovieFavoriteService} from "../../../../service/movie-favorite.service";
 
 describe('FavoritePageComponent', () => {
-  let component: FavoritePageComponent;
-  let fixture: ComponentFixture<FavoritePageComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ FavoritePageComponent ]
-    })
-    .compileComponents();
-  }));
+  let httpClientSpy: { get: jasmine.Spy };
+  let movieFavoriteService: MovieFavoriteService;
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FavoritePageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    movieFavoriteService = new MovieFavoriteService(<any> httpClientSpy);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should be created', () => {
+    expect(movieFavoriteService).toBeTruthy();
   });
 });
