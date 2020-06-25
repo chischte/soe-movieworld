@@ -1,16 +1,58 @@
 import { ContentManagerComponent } from './content-manager.component';
-import {MovieDataServiceService} from "../../service/movie-data-service.service";
+import {of} from "rxjs";
 
 describe('ContentManagerComponent', () => {
-  let movieDataServiceService: MovieDataServiceService;
-  let httpClientSpy: { get: jasmine.Spy };
+
+  let contentManagerComponent: ContentManagerComponent;
+
+  function createGenres() {
+    return {
+      genres: [
+        {id: 1, name: 'Action'},
+        {id: 2, name: 'Comedy'},
+        {id: 3, name: 'Drama'}
+      ]
+    }
+  }
+
+  function createMovieDataService(): any {
+    return {
+      getGenre: () => {
+        return of(createGenres());
+      }
+    };
+  }
 
   beforeEach(() => {
-    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    movieDataServiceService = new MovieDataServiceService(<any>httpClientSpy);
+    const movieDataService = createMovieDataService();
+    // @ts-ignore
+    contentManagerComponent = new ContentManagerComponent(movieDataService, {});
   });
 
-  it('should be created', () => {
-    expect(movieDataServiceService).toBeTruthy();
+  it('should get all genres from tmdb', () => {
+    //  given
+    const genres = createGenres();
+
+    // when
+    contentManagerComponent.getAllGenresFromTMDB();
+
+    // then
+    expect(contentManagerComponent.allGenres).toEqual(genres.genres);
+  });
+
+  it('should filter movies by genre', () => {
+    // given
+    contentManagerComponent.Movies = [
+      // @ts-ignore
+      {id: 10, genre_ids: [1,2,3]}, {id: 20, genre_ids: [2,6,3]}, {id: 30, genre_ids: [4,5,1]}
+    ];
+
+    // when
+    contentManagerComponent.getSelectedGenre(1);
+
+    // then
+    expect(contentManagerComponent.movieFiltered.length).toBe(2);
+    expect(contentManagerComponent.movieFiltered[0].id).toBe(10);
+    expect(contentManagerComponent.movieFiltered[1].id).toBe(30);
   });
 });
