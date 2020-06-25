@@ -24,6 +24,7 @@ export class FavoritePageComponent implements OnInit {
     this.movieFavoriteService.getFavorite()
       .subscribe((data: Array<IFavorite>) => {
         this.favoriteListArray = data;
+        console.log('Das sind die Daten von dem Server' + data);
       });
   }
 }
