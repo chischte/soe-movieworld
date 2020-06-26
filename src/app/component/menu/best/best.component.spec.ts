@@ -38,6 +38,7 @@ describe('BestComponent', () => {
     // when
     bestComponent.getTopRated();
 
+    // then
     expect(bestComponent.movies.length).toBe(2);
   });
 });
