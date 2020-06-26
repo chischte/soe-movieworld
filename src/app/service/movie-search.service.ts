@@ -10,16 +10,20 @@ import {IMoviePage} from '../model/IMoviePage';
 
 export class MovieSearchService {
   serviceHelper: ServiceHelper = new ServiceHelper();
-  language:string = '&language=en-US';
-  page:string = '&page=1';
-  pageQuery:string = '&query=';
-  includeAdult:string = '&include_adult=false';
+  language:string;
+  page:string;
+  pageQuery:string;
+  includeAdult:string;
 
-  searchMovieUrl: string;
   @Input() searchInputField: string;
   public searchTerm: BehaviorSubject<string> = new BehaviorSubject<string>(null);
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    this.language ='&language=en-US';
+    this.page = '&page=1';
+    this.pageQuery = '&query=';
+    this.includeAdult = '&include_adult=false';
+  }
 
   getSearchedMovie(searchInputField: string) {
     const firstPath: string = 'search/movie?';
