@@ -8,7 +8,6 @@ import {SearchComponent} from './component/menu/search/search.component';
 import {LoginComponent} from './component/auth/login/login.component';
 import {SignupComponent} from './component/auth/signup/signup.component';
 
-
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch : 'full' },
   { path: 'home', component : HomeComponent },
@@ -17,11 +16,7 @@ const routes: Routes = [
   { path: 'best', component: BestComponent },
   { path: 'search/:searchparam', component: SearchComponent }, // searchparam because text is not allowed
   { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
-
-
-
-  // { path: '**', component: PageNotFoundComponent } <--- ToDo
+  { path: 'signup', component: SignupComponent }
 ];
 
 @NgModule({

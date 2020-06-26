@@ -1,25 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { SignupComponent } from './signup.component';
+import {AuthService} from "./auth.service";
 
-import { SingupComponent } from './signup.component';
-
-describe('SingupComponent', () => {
-  let component: SingupComponent;
-  let fixture: ComponentFixture<SingupComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SingupComponent ]
-    })
-    .compileComponents();
-  }));
+describe('SignupComponent', () => {
+  let authService : AuthService;
+  let httpClientSpy: { get: jasmine.Spy };
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SingupComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    authService = new AuthService(<any> httpClientSpy);
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should be created', () => {
+    expect(authService).toBeTruthy();
   });
 });

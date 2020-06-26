@@ -14,8 +14,7 @@ export class SignupComponent implements OnInit {
 
   constructor(public authService: AuthService) { }
 
-   ngOnInit(): void {
-  }
+   ngOnInit(): void { }
 
   onSignup(form: NgForm): void {
     if (form.invalid) {
