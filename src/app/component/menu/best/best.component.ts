@@ -11,14 +11,18 @@ import {IMovie} from '../../../model/IMovie';
 
 export class BestComponent implements OnInit {
 
-  bestMovieListOutput: Array<IMovie>;
+  movies: Array<IMovie>;
 
   constructor(private movieDataService: MovieDataService) { }
 
   ngOnInit() {
+    this.getTopRated();
+  }
+
+  getTopRated(){
     return this.movieDataService.getTopRatedPage()
       .subscribe((data: IMoviePage) => {
-        this.bestMovieListOutput = data.results;
+        this.movies = data.results;
       });
   }
 }

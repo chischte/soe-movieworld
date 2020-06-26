@@ -55,4 +55,30 @@ describe('ContentManagerComponent', () => {
     expect(contentManagerComponent.filteredMovies[0].id).toBe(10);
     expect(contentManagerComponent.filteredMovies[1].id).toBe(30);
   });
+
+
+  // function createFavourite(){
+  //   return favourite: [
+  //     {id:1, movieName: 'Best Movie Ever', additionalNotes: 'Somenotes1'},
+  //     {id:2, movieName: 'Matrix', additionalNotes: 'Somenotes2'},
+  //     {id:3, movieName: 'Mr. and Mrs. Smith', additionalNotes: 'Somenotes3'},
+  //     {id:4, movieName: 'Police Academy', additionalNotes: 'Somenotes4'},
+  //   ]
+  // }
+  //
+  // function createFavouriteService():any{
+  //   return{
+  //     getFavourite:() =>{
+  //       return of(createFavourite());
+  //     }
+  //   };
+  // }
+  // it('schould get favourite list', () =>{
+  //   // given
+  //   const favourites = createFavourite();
+  //
+  //   // when
+  //
+  //   expect(contentManagerComponent.addFavorite).toEqual(favourites.favourites);
+  // });
 });

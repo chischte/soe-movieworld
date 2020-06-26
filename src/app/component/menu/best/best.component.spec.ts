@@ -1,16 +1,43 @@
 import {BestComponent} from './best.component';
-import {MovieDataService} from "../../../service/movie-data.service";
+import {of} from "rxjs";
 
 describe('BestComponent', () => {
-  let movieDataService: MovieDataService;
-  let httpClientSpy: { get: jasmine.Spy };
+  let bestComponent = BestComponent;
+
+  function createMovies() {
+    return {
+      movies: [
+        {id: 1, title: 'Matrix'},
+        {id: 2, title: 'Police Academy'},
+        {id: 3, title: 'Mr. and Mrs. Smith'}
+      ]
+    }
+  }
+
+  function createMovieDataService(): any {
+    return {
+      getTopRatedPage: () => {
+        return of(createMovies());
+      }
+    };
+  }
 
   beforeEach(() => {
-    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    movieDataService = new MovieDataService(<any> httpClientSpy);
+    const movieDataService = createMovieDataService();
+    // @ts-ignore
+    bestComponent = new BestComponent(movieDataService);
   });
 
-  it('should be created', () => {
-    expect(movieDataService).toBeTruthy();
+  it('should get top rated page', () => {
+    // given
+    bestComponent.movies = [
+      // @ts-ignore
+      {id: 10, title: 'Matrix'}, {id: 20, title: 'Police Academy'}, {id: 30, title: 'Mr. and Mrs. Smith'}
+    ];
+
+    // when
+    bestComponent.getTopRated();
+
+    expect(bestComponent.movies.length).toBe(2);
   });
 });
