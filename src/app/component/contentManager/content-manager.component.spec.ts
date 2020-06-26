@@ -73,7 +73,7 @@ describe('ContentManagerComponent', () => {
   //     }
   //   };
   // }
-  // it('schould get favourite list', () =>{
+  // it('should get favourite list', () =>{
   //   // given
   //   const favourites = createFavourite();
   //

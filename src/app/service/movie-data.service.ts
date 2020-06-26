@@ -10,10 +10,12 @@ import {ServiceHelper} from '../serviceHelper/service-helper';
 
 export class MovieDataService {
   serviceHelper: ServiceHelper = new ServiceHelper();
-  language = '&language=en-US';
-  page = '&page=1';
+  language: string
+  page: string;
 
   constructor(private httpClient: HttpClient) {
+    this.language = '&language=en-US';
+    this.page = '&page=1';
   }
 
   getGenre() {

@@ -3,6 +3,7 @@ import {IMovie} from '../../../model/IMovie';
 import {MovieSearchService} from '../../../service/movie-search.service';
 import {IMoviePage} from '../../../model/IMoviePage';
 import { ActivatedRoute } from '@angular/router';
+import {IGenre} from "../../../model/IGenre";
 
 
 @Component({
@@ -15,13 +16,17 @@ export class SearchComponent implements OnInit {
 
   UrlParameter: string;
 
-  constructor(private Activatedroute: ActivatedRoute, private movieSearchService: MovieSearchService) {
+  constructor(private activatedRoute: ActivatedRoute, private movieSearchService: MovieSearchService) {
   }
 
   ngOnInit(): void {
-    this.UrlParameter = this.Activatedroute.snapshot.paramMap.get('searchparam');
+    this.UrlParameter = this.activatedRoute.snapshot.paramMap.get('searchparam');
 
-    this.movieSearchService.getSearchedMovie(this.UrlParameter)
+    this.search(this.UrlParameter);
+  }
+
+  search(urlParameter :string){
+    this.movieSearchService.getSearchedMovie(urlParameter)
       .subscribe((data: IMoviePage) => {
         this.searchedMovieListOutput = data.results;
       });
