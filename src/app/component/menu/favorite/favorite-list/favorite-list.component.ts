@@ -18,7 +18,7 @@ export class FavoriteListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deleteFavorite(index: number): void {
+  deleteFavourite(index: number): void {
     this.movieFavoriteService.deleteFavorite(this.favoriteListArray[index])
       .subscribe((response: any) => {
         this.updateFavoriteList.emit();

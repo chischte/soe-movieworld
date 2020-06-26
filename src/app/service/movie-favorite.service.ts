@@ -11,7 +11,7 @@ export class MovieFavoriteService {
 
   constructor(private http: HttpClient) { }
 
-  private baseUrl = 'http://localhost:3000/api';
+  baseUrl = 'http://localhost:3000/api';
 
   public getFavorite(): Observable<Array<IFavorite>> {
     return this.http.get<Array<IFavorite>>(this.baseUrl + '/favourite/favorite');
