@@ -12,7 +12,8 @@ export class PopularComponent implements OnInit {
 
   popularMovieListOutput: Array<IMovie>;
 
-  constructor(private movieDataService: MovieDataService) { }
+  constructor(private movieDataService: MovieDataService) {
+  }
 
   ngOnInit() {
     return this.movieDataService.getPopularPage()

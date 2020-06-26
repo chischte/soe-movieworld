@@ -1,4 +1,4 @@
-import { MovieDataService } from './movie-data.service';
+import {MovieDataService} from './movie-data.service';
 
 describe('MovieDataService', () => {
   let service: MovieDataService;
@@ -6,7 +6,7 @@ describe('MovieDataService', () => {
 
   beforeEach(() => {
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    service = new MovieDataService(<any> httpClientSpy)
+    service = new MovieDataService(<any>httpClientSpy)
   });
 
   it('should be created', () => {

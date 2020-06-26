@@ -1,4 +1,4 @@
-import { FavoritePageComponent } from './favorite-page.component';
+import {FavoritePageComponent} from './favorite-page.component';
 import {MovieFavoriteService} from "../../../../service/movie-favorite.service";
 
 describe('FavoritePageComponent', () => {
@@ -7,7 +7,7 @@ describe('FavoritePageComponent', () => {
 
   beforeEach(() => {
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    movieFavoriteService = new MovieFavoriteService(<any> httpClientSpy);
+    movieFavoriteService = new MovieFavoriteService(<any>httpClientSpy);
   });
 
   it('should be created', () => {

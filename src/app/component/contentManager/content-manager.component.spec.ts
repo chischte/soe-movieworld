@@ -1,4 +1,4 @@
-import { ContentManagerComponent } from './content-manager.component';
+import {ContentManagerComponent} from './content-manager.component';
 import {of} from "rxjs";
 
 describe('ContentManagerComponent', () => {
@@ -44,7 +44,7 @@ describe('ContentManagerComponent', () => {
     // given
     contentManagerComponent.movies = [
       // @ts-ignore
-      {id: 10, genre_ids: [1,2,3]}, {id: 20, genre_ids: [2,6,3]}, {id: 30, genre_ids: [4,5,1]}
+      {id: 10, genre_ids: [1, 2, 3]}, {id: 20, genre_ids: [2, 6, 3]}, {id: 30, genre_ids: [4, 5, 1]}
     ];
 
     // when

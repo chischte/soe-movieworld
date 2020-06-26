@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {IFavorite} from '../model/IFavorite';
@@ -9,7 +9,8 @@ import {IFavorite} from '../model/IFavorite';
 
 export class MovieFavoriteService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   baseUrl = 'http://localhost:3000/api';
 

@@ -3,15 +3,17 @@
   <div>
     <label class="favorite-input-label mr-lg-5">
       <span class="label-input">Movie Name</span>
-      <input class="favorite-movie-input-text" [(ngModel)]="movieName" type="text" placeholder="Matrix" />
+      <input class="favorite-movie-input-text" [(ngModel)]="movieName" type="text" placeholder="Matrix"/>
     </label>
   </div>
   <div>
     <label class="favorite-input-label mr-lg-5" for="favorite">
       <span class="label-input">Zusatzinformationen</span>
-      <textarea class="favorite-movie-input-text" [(ngModel)]="additionalNotes" id="favorite" placeholder="Zusätzliche informationen zum Movie"></textarea>
+      <textarea class="favorite-movie-input-text" [(ngModel)]="additionalNotes" id="favorite"
+                placeholder="Zusätzliche informationen zum Movie"></textarea>
     </label>
   </div>
-  <button type="submit" (click)="addFavorite();" class="btn btn-primary">Movie in die Favoritenliste</button><br>
+  <button type="submit" (click)="addFavorite();" class="btn btn-primary">Movie in die Favoritenliste</button>
+  <br>
 </div>
 

@@ -39,12 +39,12 @@ describe('FavoriteListComponent', () => {
     const dummyPost: IFavorite[] = [{
       _id: '1',
       movieName: 'some Notes'
-    },{
+    }, {
       _id: '2',
       movieName: 'some Notes2'
     }];
 
-    service.getFavorite().subscribe(posts =>{
+    service.getFavorite().subscribe(posts => {
       expect(posts.length).toEqual(2);
       expect(posts).toEqual(dummyPost);
     });

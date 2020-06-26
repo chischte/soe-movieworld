@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 
 import {HeaderComponent} from './component/navigation/header/header.component';
@@ -14,15 +14,15 @@ import {FavoriteListComponent} from './component/menu/favorite/favorite-list/fav
 import {FavoritePageComponent} from './component/menu/favorite/favorite-page/favorite-page.component';
 import {MovieDataService} from './service/movie-data.service';
 
-import { SearchBarComponent } from './component/navigation/searchbar/search-bar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ContentManagerComponent } from './component/contentManager/content-manager.component';
-import { BestComponent } from './component/menu/best/best.component';
-import { SearchComponent } from './component/menu/search/search.component';
-import { LoginComponent } from './component/auth/login/login.component';
-import { SignupComponent } from './component/auth/signup/signup.component';
+import {SearchBarComponent} from './component/navigation/searchbar/search-bar.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ContentManagerComponent} from './component/contentManager/content-manager.component';
+import {BestComponent} from './component/menu/best/best.component';
+import {SearchComponent} from './component/menu/search/search.component';
+import {LoginComponent} from './component/auth/login/login.component';
+import {SignupComponent} from './component/auth/signup/signup.component';
 
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatFormFieldModule} from '@angular/material/form-field';

@@ -1,4 +1,4 @@
-import { FavoriteInputComponent } from './favorite-input.component';
+import {FavoriteInputComponent} from './favorite-input.component';
 import {MovieFavoriteService} from "../../../../service/movie-favorite.service";
 
 describe('FavoriteInputComponent', () => {
@@ -7,7 +7,7 @@ describe('FavoriteInputComponent', () => {
 
   beforeEach(() => {
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    movieFavoriteService = new MovieFavoriteService(<any> httpClientSpy);
+    movieFavoriteService = new MovieFavoriteService(<any>httpClientSpy);
   });
 
   it('should be created', () => {

@@ -8,7 +8,7 @@ export class ServiceHelper {
     return returnPath;
   }
 
-  createUrlSearchPath(firstPath: string, middlePath: string, language: string, page: string = '', userInputString: string = '', includeAdult: string= 'false') {
+  createUrlSearchPath(firstPath: string, middlePath: string, language: string, page: string = '', userInputString: string = '', includeAdult: string = 'false') {
     const apiKey = this.getApiKey();
     const returnPath = this.baseUrl + firstPath + middlePath + apiKey + language + userInputString + page + includeAdult;
     return returnPath;

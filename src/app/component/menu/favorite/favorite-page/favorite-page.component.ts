@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {IFavorite} from '../../../../model/IFavorite';
 import {MovieFavoriteService} from '../../../../service/movie-favorite.service';
 
@@ -10,7 +10,8 @@ import {MovieFavoriteService} from '../../../../service/movie-favorite.service';
 export class FavoritePageComponent implements OnInit {
   favoriteListArray: Array<IFavorite> = [];
 
-  constructor(private movieFavoriteService: MovieFavoriteService) { }
+  constructor(private movieFavoriteService: MovieFavoriteService) {
+  }
 
   ngOnInit(): void {
     this.getFavoriteList();

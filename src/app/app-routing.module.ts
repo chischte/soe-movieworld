@@ -9,18 +9,18 @@ import {LoginComponent} from './component/auth/login/login.component';
 import {SignupComponent} from './component/auth/signup/signup.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch : 'full' },
-  { path: 'home', component : HomeComponent },
-  { path: 'popular', component: PopularComponent },
-  { path: 'favorite', component: FavoritePageComponent },
-  { path: 'best', component: BestComponent },
-  { path: 'search/:searchparam', component: SearchComponent }, // searchparam because text is not allowed
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent }
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
+  {path: 'popular', component: PopularComponent},
+  {path: 'favorite', component: FavoritePageComponent},
+  {path: 'best', component: BestComponent},
+  {path: 'search/:searchparam', component: SearchComponent}, // searchparam because text is not allowed
+  {path: 'login', component: LoginComponent},
+  {path: 'signup', component: SignupComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing : false })],
+  imports: [RouterModule.forRoot(routes, {enableTracing: false})],
   exports: [RouterModule]
 })
 

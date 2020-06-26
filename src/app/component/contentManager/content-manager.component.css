@@ -66,13 +66,13 @@
 }
 
 .movie-grid-button-layout-bottom {
-  position:relative;
-  height:40px;
-  bottom:0;
-  width:100%;
+  position: relative;
+  height: 40px;
+  bottom: 0;
+  width: 100%;
 }
 
-.movie-image-frame-default-image{
+.movie-image-frame-default-image {
   width: 200px;
   height: 300px;
   background: url(assets/images/movieroll.png) no-repeat;
@@ -231,10 +231,10 @@ td {
   transition-delay: .2s;
 }
 
-.list-view-container{
+.list-view-container {
   border: 1px solid #444444;
 }
 
-.list-view-container:hover{
+.list-view-container:hover {
   border: 1px solid #007bff;
 }

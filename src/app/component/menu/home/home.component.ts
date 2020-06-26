@@ -13,7 +13,8 @@ export class HomeComponent implements OnInit {
 
   homeMovieListOutput: Array<IMovie>;
 
-  constructor(private movieDataService: MovieDataService) { }
+  constructor(private movieDataService: MovieDataService) {
+  }
 
   ngOnInit() {
     return this.movieDataService.getLatest()

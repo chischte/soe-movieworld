@@ -1,4 +1,4 @@
-import { HomeComponent } from './home.component';
+import {HomeComponent} from './home.component';
 import {MovieDataService} from "../../../service/movie-data.service";
 
 describe('HomeComponent', () => {
@@ -7,7 +7,7 @@ describe('HomeComponent', () => {
 
   beforeEach(() => {
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    movieDataService = new MovieDataService(<any> httpClientSpy);
+    movieDataService = new MovieDataService(<any>httpClientSpy);
   });
 
   it('should be created', () => {

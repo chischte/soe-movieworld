@@ -1,4 +1,4 @@
-import { MovieFavoriteService } from './movie-favorite.service';
+import {MovieFavoriteService} from './movie-favorite.service';
 
 describe('MovieFavoriteService', () => {
   let service: MovieFavoriteService;
@@ -6,7 +6,7 @@ describe('MovieFavoriteService', () => {
 
   beforeEach(() => {
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    service = new MovieFavoriteService(<any> httpClientSpy)
+    service = new MovieFavoriteService(<any>httpClientSpy)
   });
 
   it('should be created', () => {
