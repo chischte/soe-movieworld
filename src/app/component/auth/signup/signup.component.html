@@ -1,13 +1,13 @@
 <mat-card>
-    <form (submit)="onSignup(loginForm)" #loginForm="ngForm" *ngIf="!isLoading">
-    <mat-form-field>
+    <form (submit)="onSignup(loginForm)" #loginForm="ngForm" *ngIf="!isLoading"class="pt-5 pb-5 col-6 display-login-form">
+    <mat-form-field class="mb-1 col-5">
       <input matInput name="email" ngModel type="email" placeholder="E-Mail" #emailInput="ngModel" required email>
       <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field class="col-5">
       <input type="password" name="password" ngModel matInput placeholder="Password" #passwordInput="ngModel" required>
       <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
     </mat-form-field>
-    <button mat-raised-button color="accent" type="submit" >Submit</button>
+    <button mat-raised-button color="accent" type="submit" class="btn btn-primary">Submit</button>
   </form>
 </mat-card>
