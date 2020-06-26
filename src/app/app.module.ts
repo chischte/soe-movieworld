@@ -12,7 +12,7 @@ import {HomeComponent} from './component/menu/home/home.component';
 import {FavoriteInputComponent} from './component/menu/favorite/favorite-input/favorite-input.component';
 import {FavoriteListComponent} from './component/menu/favorite/favorite-list/favorite-list.component';
 import {FavoritePageComponent} from './component/menu/favorite/favorite-page/favorite-page.component';
-import {MovieDataServiceService} from './service/movie-data-service.service';
+import {MovieDataService} from './service/movie-data.service';
 
 import { SearchBarComponent } from './component/navigation/searchbar/search-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -56,7 +56,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatProgressSpinnerModule,
     MatFormFieldModule,
   ],
-  providers: [MovieDataServiceService],
+  providers: [MovieDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

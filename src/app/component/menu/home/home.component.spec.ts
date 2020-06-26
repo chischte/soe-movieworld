@@ -1,16 +1,16 @@
 import { HomeComponent } from './home.component';
-import {MovieDataServiceService} from "../../../service/movie-data-service.service";
+import {MovieDataService} from "../../../service/movie-data.service";
 
 describe('HomeComponent', () => {
   let httpClientSpy: { get: jasmine.Spy };
-  let movieDataServiceService: MovieDataServiceService;
+  let movieDataService: MovieDataService;
 
   beforeEach(() => {
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    movieDataServiceService = new MovieDataServiceService(<any> httpClientSpy);
+    movieDataService = new MovieDataService(<any> httpClientSpy);
   });
 
   it('should be created', () => {
-    expect(movieDataServiceService).toBeTruthy();
+    expect(movieDataService).toBeTruthy();
   });
 });

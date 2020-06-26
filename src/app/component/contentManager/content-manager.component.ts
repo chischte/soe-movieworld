@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit} from '@angular/core';
 import {IMovie} from '../../model/IMovie';
-import {MovieDataServiceService} from '../../service/movie-data-service.service';
+import {MovieDataService} from '../../service/movie-data.service';
 import {MovieFavoriteService} from '../../service/movie-favorite.service';
 import {IGenre} from '../../model/IGenre';
 
@@ -17,9 +17,9 @@ export class ContentManagerComponent implements OnInit, OnChanges {
   allGenres: [{ id: number; name: string }];
   topRatedImageBasePath: string = 'http://image.tmdb.org/t/p/w200/';
 
-  @Input() Movies: Array<IMovie>;
+  @Input() movies: Array<IMovie>;
 
-  constructor(private movieDataServiceService: MovieDataServiceService, private movieFavoriteService: MovieFavoriteService) {}
+  constructor(private movieDataService: MovieDataService, private movieFavoriteService: MovieFavoriteService) {}
 
   ngOnInit() {
     console.log('%cMade with %c\u2764 %cin Switzerland.', 'font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: black; font-size: 14px;', 'font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: red; font-size: 14px;', 'font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: black; font-size: 14px;');
@@ -27,7 +27,7 @@ export class ContentManagerComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.movieFiltered = this.Movies;
+    this.movieFiltered = this.movies;
   }
 
   addFavorite(index) {
@@ -52,7 +52,7 @@ export class ContentManagerComponent implements OnInit, OnChanges {
   }
 
   getAllGenresFromTMDB() {
-    this.movieDataServiceService.getGenre()
+    this.movieDataService.getGenre()
       .subscribe((data: IGenre) => {
         this.allGenres = data.genres;
       });
@@ -60,7 +60,7 @@ export class ContentManagerComponent implements OnInit, OnChanges {
 
   getSelectedGenre(id: number) {
     this.movieTemp = [];
-    this.Movies.forEach(function(movie) {
+    this.movies.forEach(function(movie) {
       if (movie.genre_ids.includes(id)) {
         this.movieTemp.push(movie);
       }

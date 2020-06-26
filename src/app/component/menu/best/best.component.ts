@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MovieDataServiceService} from '../../../service/movie-data-service.service';
+import {MovieDataService} from '../../../service/movie-data.service';
 import {IMoviePage} from '../../../model/IMoviePage';
 import {IMovie} from '../../../model/IMovie';
 
@@ -13,10 +13,10 @@ export class BestComponent implements OnInit {
 
   bestMovieListOutput: Array<IMovie>;
 
-  constructor(private movieDataServiceService: MovieDataServiceService) { }
+  constructor(private movieDataService: MovieDataService) { }
 
   ngOnInit() {
-    return this.movieDataServiceService.getTopRatedPage()
+    return this.movieDataService.getTopRatedPage()
       .subscribe((data: IMoviePage) => {
         this.bestMovieListOutput = data.results;
       });

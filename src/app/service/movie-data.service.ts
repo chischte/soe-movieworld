@@ -8,7 +8,7 @@ import {ServiceHelper} from '../serviceHelper/service-helper';
   providedIn: 'root'
 })
 
-export class MovieDataServiceService {
+export class MovieDataService {
   serviceHelper: ServiceHelper = new ServiceHelper();
   language = '&language=en-US';
   page = '&page=1';

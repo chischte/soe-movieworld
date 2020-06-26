@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {MovieDataServiceService} from '../../../service/movie-data-service.service';
+import {MovieDataService} from '../../../service/movie-data.service';
 import {IMovie} from '../../../model/IMovie';
 import {IMoviePage} from '../../../model/IMoviePage';
 
@@ -12,10 +12,10 @@ export class PopularComponent implements OnInit {
 
   popularMovieListOutput: Array<IMovie>;
 
-  constructor(private movieDataServiceService: MovieDataServiceService) { }
+  constructor(private movieDataService: MovieDataService) { }
 
   ngOnInit() {
-    return this.movieDataServiceService.getPopularPage()
+    return this.movieDataService.getPopularPage()
       .subscribe((data: IMoviePage) => {
         this.popularMovieListOutput = data.results;
       });
