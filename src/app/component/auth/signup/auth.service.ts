@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
 
 import { AuthData } from './auth-data';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
- constructor(private http: HttpClient) {}
+  serverPath:string;
+  apiPath:string;
 
+  constructor(private http: HttpClient) {
+    this.serverPath = 'http://localhost:3000/';
+    this.apiPath = 'api/user/';
+  }
 
   createUser(email: string, password: string) {
    const authData: AuthData = { email, password };
-   this.http.post('http://localhost:3000/api/user/signup', authData)
+   this.http.post(this.serverPath + this.apiPath + 'signup', authData)
      .subscribe(response => {
        console.log(response);
     });
@@ -21,7 +24,7 @@ export class AuthService {
 
   login(email: string, password: string) {
     const authData: AuthData = { email, password };
-    this.http.post('http://localhost:3000/api/user/login', authData)
+    this.http.post(this.serverPath + this.apiPath + 'login', authData)
       .subscribe(response => {
         console.log(response);
         console.log(authData);
