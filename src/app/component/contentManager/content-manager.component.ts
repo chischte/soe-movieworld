@@ -11,7 +11,7 @@ import {IGenre} from '../../model/IGenre';
 })
 
 export class ContentManagerComponent implements OnInit, OnChanges {
-  movieFiltered: IMovie[] = [];
+  filteredMovies: IMovie[] = [];
   movieTemp: IMovie[] = [];
   displayMode = 1;
   allGenres: [{ id: number; name: string }];
@@ -27,12 +27,12 @@ export class ContentManagerComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    this.movieFiltered = this.movies;
+    this.filteredMovies = this.movies;
   }
 
   addFavorite(index) {
     if (index >= 0) {
-      const resultOfIndex = this.movieFiltered[index];
+      const resultOfIndex = this.filteredMovies[index];
       let stringBuilder = '<table><tr><td>Release date:</td><td>' + resultOfIndex.release_date + '</td></tr>';
       stringBuilder += '<tr><td>Original title:</td><td>' + resultOfIndex.original_title + '</td></tr>';
       stringBuilder += '<tr><td>Original language:</td><td>' + resultOfIndex.original_language + '</td></tr>';
@@ -65,6 +65,6 @@ export class ContentManagerComponent implements OnInit, OnChanges {
         this.movieTemp.push(movie);
       }
     }.bind(this));
-    this.movieFiltered = this.movieTemp;
+    this.filteredMovies = this.movieTemp;
   }
 }

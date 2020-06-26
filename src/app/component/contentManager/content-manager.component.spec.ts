@@ -51,8 +51,8 @@ describe('ContentManagerComponent', () => {
     contentManagerComponent.getSelectedGenre(1);
 
     // then
-    expect(contentManagerComponent.movieFiltered.length).toBe(2);
-    expect(contentManagerComponent.movieFiltered[0].id).toBe(10);
-    expect(contentManagerComponent.movieFiltered[1].id).toBe(30);
+    expect(contentManagerComponent.filteredMovies.length).toBe(2);
+    expect(contentManagerComponent.filteredMovies[0].id).toBe(10);
+    expect(contentManagerComponent.filteredMovies[1].id).toBe(30);
   });
 });

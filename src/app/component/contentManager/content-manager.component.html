@@ -21,7 +21,7 @@
   <!-- Grid View -->
   <div class="row col-11" *ngIf="displayMode === 1">
     <div class="m-1 p-1 row-grid content-manager"
-         *ngFor="let top of movieFiltered let index = index"
+         *ngFor="let top of filteredMovies let index = index"
          [ngClass]="{'odd': 0 === index % 2, 'even': 1 === index % 2}">
       <div>
         <div class="movie-image-frame hover-effect" type="submit" data-toggle="modal"
@@ -96,9 +96,9 @@
   </div>
   <!-- List View -->
   <div class="row col-12" *ngIf="displayMode === 2">
-    <div class="container pt-2" *ngIf="movieFiltered">
+    <div class="container pt-2" *ngIf="filteredMovies">
       <div class="row mb-2 list-view-container"
-           *ngFor="let top of movieFiltered; let index = index"
+           *ngFor="let top of filteredMovies; let index = index"
            [ngClass]="{'odd': 0 === index % 2, 'even': 1 === index % 2}">
         <div class="col-lg-3 mb-1 mt-1 hover-effect">
           <img src="{{this.topRatedImageBasePath}}{{top.poster_path}}" class="img-responsive"
