@@ -1,5 +1,5 @@
 import { SignupComponent } from './signup.component';
-import {AuthService} from "./auth.service";
+import {AuthService} from "../../../service/auth.service";
 
 describe('SignupComponent', () => {
   let authService : AuthService;
