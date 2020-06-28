@@ -44,10 +44,14 @@ export class AuthService {
     this.http.post<{ token: string }>(this.serverPath + this.apiPath + 'login', authData)
       .subscribe(response => {
         this.token = response.token;
-        this.authStatusListener.next(true);
-        console.log('test ob das Token ankommt im frontend' + this.token);
+        if (this.token) {
+          this.authStatusListener.next(true);
+          this.isAuthenticated = true;
+          this.router.navigate(['/']);
+        }
       });
   }
+
 
   logout() {
     this.token = null;

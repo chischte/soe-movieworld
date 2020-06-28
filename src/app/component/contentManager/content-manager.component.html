@@ -40,7 +40,7 @@
         </div>
         <div class="movie-grid-button-layout-bottom">
           <button type="submit" (click)="addFavorite(index);"
-                  class="btn btn-outline-light align-button-bottom-left genre-button">Favorite
+                  class="btn btn-outline-light align-button-bottom-left genre-button" *ngIf="userIsAuthenticated">Favorite
           </button>
           <!-- Button trigger modal -->
           <button type="submit" class="btn btn-outline-primary align-button-bottom-right" data-toggle="modal"
@@ -109,9 +109,10 @@
           <p>{{top.overview}}</p>
           <p><strong>Bewertung: </strong>{{top.vote_average}}</p>
           <br>
-          <button type="submit" (click)="addFavorite(index);" class="btn btn-outline-primary align-bottom">In die
+          <li *ngIf="userIsAuthenticated"><button type="submit" (click)="addFavorite(index);" class="btn btn-outline-primary align-bottom">In die
             Favoritenliste aufnehmen
           </button>
+          </li>
         </div>
       </div>
     </div>

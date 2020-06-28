@@ -1,8 +1,10 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnDestroy, OnInit} from '@angular/core';
 import {IMovie} from '../../model/IMovie';
 import {MovieDataService} from '../../service/movie-data.service';
 import {MovieFavoriteService} from '../../service/movie-favorite.service';
 import {IGenre} from '../../model/IGenre';
+import {AuthService} from '../../service/auth.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-content-manager',
@@ -10,25 +12,40 @@ import {IGenre} from '../../model/IGenre';
   styleUrls: ['./content-manager.component.css']
 })
 
-export class ContentManagerComponent implements OnInit, OnChanges {
+export class ContentManagerComponent implements OnInit, OnChanges, OnDestroy {
   filteredMovies: IMovie[] = [];
   movieTemp: IMovie[] = [];
   displayMode = 1;
   allGenres: [{ id: number; name: string }];
-  topRatedImageBasePath: string = 'http://image.tmdb.org/t/p/w200/';
+  topRatedImageBasePath = 'http://image.tmdb.org/t/p/w200/';
+  userIsAuthenticated = false;
+  private authStatusSub: Subscription;
+
 
   @Input() movies: Array<IMovie>;
-
-  constructor(private movieDataService: MovieDataService, private movieFavoriteService: MovieFavoriteService) {
+  // tslint:disable-next-line:max-line-length
+  constructor(private movieDataService: MovieDataService, private movieFavoriteService: MovieFavoriteService, private authService: AuthService) {
   }
 
   ngOnInit() {
+    // tslint:disable-next-line:max-line-length
     console.log('%cMade with %c\u2764 %cin Switzerland.', 'font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: black; font-size: 14px;', 'font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: red; font-size: 14px;', 'font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; color: black; font-size: 14px;');
     this.getAllGenresFromTMDB();
+
+    this.userIsAuthenticated = this.authService.getIsAuth();
+    this.authStatusSub = this.authService
+      .getAuthStatusListener()
+      .subscribe(isAuthenticated => {
+        this.userIsAuthenticated = isAuthenticated;
+      });
   }
 
   ngOnChanges() {
     this.filteredMovies = this.movies;
+  }
+
+  ngOnDestroy() {
+    this.authStatusSub.unsubscribe();
   }
 
   addFavorite(index) {
@@ -62,7 +79,7 @@ export class ContentManagerComponent implements OnInit, OnChanges {
 
   getSelectedGenre(id: number) {
     this.movieTemp = [];
-    this.movies.forEach(function (movie) {
+    this.movies.forEach(function(movie) {
       if (movie.genre_ids.includes(id)) {
         this.movieTemp.push(movie);
       }
