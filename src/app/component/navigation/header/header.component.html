@@ -6,8 +6,11 @@
         <li><a routerLink="" routerLinkActive="active" class="nav-link">HOME</a></li>
         <li><a routerLink="best" routerLinkActive="active" class="nav-link">BEST</a></li>
         <li><a routerLink="popular" routerLinkActive="active" class="nav-link">POPULÄR</a></li>
-        <li><a routerLink="favorite" routerLinkActive="active" class="nav-link">FAVORITEN</a></li>
-        <li><a routerLink="/login" routerLinkActive="active" class="nav-link">Login</a></li>
+        <li *ngIf="userIsAuthenticated"><a routerLink="favorite" routerLinkActive="active" class="nav-link">FAVORITEN</a></li>
+        <li *ngIf="!userIsAuthenticated"><a routerLink="/login" routerLinkActive="active" class="nav-link">Login</a></li>
+        <li *ngIf="userIsAuthenticated">
+          <button mat-button (click)="onLogout()">Logout</button>
+        </li>
       </ul>
     </div>
     <div class="input-group md-form form-sm form-2 pl-0 mr-5 row-cols-sm-1">

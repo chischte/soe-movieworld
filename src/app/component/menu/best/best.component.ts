@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
 import {MovieDataService} from '../../../service/movie-data.service';
 import {IMoviePage} from '../../../model/IMoviePage';
 import {IMovie} from '../../../model/IMovie';
@@ -9,8 +9,7 @@ import {IMovie} from '../../../model/IMovie';
   styleUrls: ['./best.component.css']
 })
 
-export class BestComponent implements OnInit {
-
+export class BestComponent implements OnInit{
   movies: Array<IMovie>;
 
   constructor(private movieDataService: MovieDataService) { }

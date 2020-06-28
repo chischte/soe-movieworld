@@ -1,5 +1,5 @@
 import {ContentManagerComponent} from './content-manager.component';
-import {of} from "rxjs";
+import {of} from 'rxjs';
 
 describe('ContentManagerComponent', () => {
 
@@ -12,7 +12,7 @@ describe('ContentManagerComponent', () => {
         {id: 2, name: 'Comedy'},
         {id: 3, name: 'Drama'}
       ]
-    }
+    };
   }
 
   function createMovieDataService(): any {

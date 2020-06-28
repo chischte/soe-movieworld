@@ -1,12 +1,10 @@
 <div *ngIf="isLoading"></div>
 <form (submit)="onLogin(loginForm)" #loginForm="ngForm" *ngIf="!isLoading" class="pt-5 pb-5 col-6 display-login-form">
-  <input matInput name="email" type="email" placeholder="E-Mail" class="mb-1 col-4">
-  <input type="password" name="password" placeholder="Password" class="col-4 ml-1">
+  <input matInput name="email" ngModel type="email" placeholder="E-Mail" class="mb-1 col-4">
+  <input type="password" name="password" ngModel matInpu placeholder="Password" class="col-4 ml-1">
 
   <button mat-raised-button color="accent" type="submit" *ngIf="!isLoading" class="btn btn-primary ml-3">Login</button>
   <button mat-raised-button color="primary" routerLink="/signup" routerLinkActive="active" class="btn btn-success ml-3">
     Signup
   </button>
 </form>
-
-
