@@ -27,6 +27,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {AuthInterceptor} from './service/auth-interceptor';
+import { RecommendedComponent } from './component/menu/recommended/recommended.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import {AuthInterceptor} from './service/auth-interceptor';
     SearchComponent,
     LoginComponent,
     SignupComponent,
+    RecommendedComponent,
   ],
   imports: [
     HttpClientModule,

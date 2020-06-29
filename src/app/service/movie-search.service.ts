@@ -31,4 +31,6 @@ export class MovieSearchService {
     const searchPath: string = this.serviceHelper.createUrlSearchPath(firstPath, '', this.language, this.page, this.pageQuery + searchInputField, this.includeAdult);
     return this.httpClient.get<IMoviePage>(searchPath);
   }
+
+
 }

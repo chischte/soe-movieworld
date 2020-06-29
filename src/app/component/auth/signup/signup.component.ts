@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
+import { Router } from '@angular/router';
 
 import {AuthService} from '../../../service/auth.service';
 
@@ -12,7 +13,7 @@ export class SignupComponent implements OnInit {
 
   isLoading = false;
 
-  constructor(public authService: AuthService) {
+  constructor(public authService: AuthService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -26,5 +27,6 @@ export class SignupComponent implements OnInit {
     this.isLoading = true;
     this.authService.createUser(form.value.email, form.value.password);
     console.log('Value ' + form.value.email + ' value2 ' + form.value.password);
+    this.router.navigate(['login']);
   }
 }
