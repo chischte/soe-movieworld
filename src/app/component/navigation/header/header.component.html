@@ -10,7 +10,7 @@
         <li *ngIf="userIsAuthenticated"><a routerLink="recommended" routerLinkActive="active" class="nav-link">RECOMMENDED</a></li>
         <li *ngIf="!userIsAuthenticated"><a routerLink="/login" routerLinkActive="active" class="nav-link">Login</a></li>
         <li *ngIf="userIsAuthenticated">
-          <button mat-button (click)="onLogout()">Logout</button>
+          <button mat-button (click)="onLogout()" class="btn btn-outline-danger">Logout</button>
         </li>
       </ul>
     </div>
