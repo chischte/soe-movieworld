@@ -18,7 +18,8 @@ export class MovieFavoriteService {
     return this.http.get<Array<IFavorite>>(this.baseUrl + '/favourite/favorite');
   }
 
-  public insertFavorite(favorite: IFavorite): Observable<any> {
+  public insertFavorite(favorite: { genreId: []; teaserText: string; releaseDate: string; language: string; title: string; additionalNotes: string; movieName: string }): Observable<any> {
+    console.log('favorite: ', favorite)
     return this.http.post(this.baseUrl + '/favourite/favorite', favorite);
   }
 

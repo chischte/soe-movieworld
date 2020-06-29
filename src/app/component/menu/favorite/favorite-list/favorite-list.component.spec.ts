@@ -1,5 +1,4 @@
 import {FavoriteListComponent} from './favorite-list.component';
-import {of} from "rxjs";
 import {TestBed} from "@angular/core/testing";
 import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
 import {MovieFavoriteService} from "../../../../service/movie-favorite.service";
@@ -38,10 +37,14 @@ describe('FavoriteListComponent', () => {
   it('should call someThing', () => {
     const dummyPost: IFavorite[] = [{
       _id: '1',
-      movieName: 'some Notes'
+      movieName: 'some Notes',
+      genreId: '28',
+      releaseDate: '2020-02-20'
     }, {
       _id: '2',
-      movieName: 'some Notes2'
+      movieName: 'some Notes2',
+      genreId: '28',
+      releaseDate: '2020-02-20'
     }];
 
     service.getFavorite().subscribe(posts => {
@@ -54,6 +57,5 @@ describe('FavoriteListComponent', () => {
     expect(request.request.method).toBe('GET');
 
     request.flush(dummyPost);
-
   });
 });

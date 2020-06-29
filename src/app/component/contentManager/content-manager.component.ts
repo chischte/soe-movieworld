@@ -23,6 +23,7 @@ export class ContentManagerComponent implements OnInit, OnChanges, OnDestroy {
 
 
   @Input() movies: Array<IMovie>;
+
   // tslint:disable-next-line:max-line-length
   constructor(private movieDataService: MovieDataService, private movieFavoriteService: MovieFavoriteService, private authService: AuthService) {
   }
@@ -55,7 +56,15 @@ export class ContentManagerComponent implements OnInit, OnChanges, OnDestroy {
       stringBuilder += '<tr><td>Original title:</td><td>' + resultOfIndex.original_title + '</td></tr>';
       stringBuilder += '<tr><td>Original language:</td><td>' + resultOfIndex.original_language + '</td></tr>';
       stringBuilder += '<td>Teaser text:</td><td>' + resultOfIndex.overview + '</td></tr></table>';
-      const favorite = {movieName: resultOfIndex.title, additionalNotes: stringBuilder};
+      const favorite = {
+        movieName: resultOfIndex.title,
+        releaseDate: resultOfIndex.release_date,
+        genreId: resultOfIndex.genre_ids,
+        title: resultOfIndex.original_title,
+        language: resultOfIndex.original_language,
+        teaserText: resultOfIndex.overview,
+        additionalNotes: stringBuilder
+      };
       this.movieFavoriteService.insertFavorite(favorite)
         .subscribe((response: any) => {
         });
@@ -79,7 +88,7 @@ export class ContentManagerComponent implements OnInit, OnChanges, OnDestroy {
 
   getSelectedGenre(id: number) {
     this.movieTemp = [];
-    this.movies.forEach(function(movie) {
+    this.movies.forEach(function (movie) {
       if (movie.genre_ids.includes(id)) {
         this.movieTemp.push(movie);
       }
